@@ -39,5 +39,13 @@ CREATE TABLE `weekdata` (
   `date` varchar
 );
 ```
+### User Data
+Replace these varibales in connect.php with your dB-info
+```php
+$mysql_server = "SERVER_NAME";
+$mysql_user = "USER_NAME";
+$mysql_password = "USER_PASSWORD";
+$mysql_database = "DATABASE_NAME";
+```
 
 © Markus Thulin 2015-

@@ -5,3 +5,6 @@ js
 
 #PHPMailer
 PHPMailer_v5.1
+
+#During development
+functions.php
