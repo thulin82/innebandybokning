@@ -4,6 +4,8 @@
 *
 * PHP version 5
 *
+* @category Connect
+* @package  Innebandybokning
 * @author   Markus Thulin <macky_b@hotmail.com>
 * @license  http://www.opensource.org/licenses/mit-license.php MIT
 * @link     https://github.com/thulin82/innebandybokning
