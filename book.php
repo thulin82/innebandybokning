@@ -51,14 +51,23 @@ if (!isset($_SESSION['sess_user'])) {
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
+
 <a class="navbar-brand" href="#">Innebandybokning</a>
 </div>
 <div class="collapse navbar-collapse">
 <ul class="nav navbar-nav">
-<li><a href="index.php">Logga Ut</a></li>
-<li class="active"><a href="book.php">Boka</a></li>
-<li><a href="stats.php">Statistik</a></li>
-<li><a href="about.php">Om...</a></li>
+<li><a href="index.php">
+    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logga Ut</a>
+</li>
+<li class="active"><a href="book.php">
+    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Boka</a>
+</li>
+<li><a href="stats.php">
+    <span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Statistik</a>
+</li>
+<li><a href="about.php">
+    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Om...</a>
+</li>
 </ul></div></div></div>
 
 <div class="container">
