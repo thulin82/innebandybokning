@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/thulin82/innebandybokning.svg?branch=master)](https://travis-ci.org/thulin82/innebandybokning)
 # [Innebandybokning](https://github.com/thulin82/innebandybokning)
 Booking page for Innebandy
 
