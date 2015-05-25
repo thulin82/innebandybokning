@@ -33,6 +33,8 @@ if (!isset($_SESSION['sess_user'])) {
 
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="custom_style.css" rel="stylesheet">
 
 <!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 <!--WARNING: Respond.js doesn't work if you view the page via file://-->
