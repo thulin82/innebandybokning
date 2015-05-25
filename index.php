@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
  
     // User found, set session and forward to book.php
     $row = $result->fetch_array();
-    $_SESSION['sess_id'] = $row['id'];;
+    $_SESSION['sess_id'] = $row['id'];
     $_SESSION['sess_user'] = $user;
     header("Location: book.php");
     exit;

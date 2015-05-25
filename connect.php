@@ -20,4 +20,3 @@ $mysqli = new mysqli($mysql_server, $mysql_user, $mysql_password, $mysql_databas
 if (mysqli_connect_errno()) {
     echo mysqli_connect_error();
 }
-?>
