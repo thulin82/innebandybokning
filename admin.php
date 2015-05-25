@@ -70,6 +70,14 @@ if ((!isset($_SESSION['sess_user'])) || ($_SESSION['sess_id'] == 1)) {
 <li><a href="about.php">
     <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Om...</a>
 </li>
+<?php
+$sess_id = $_SESSION['sess_id'];
+if ($sess_id == 2){
+echo '<li class="active"><a href="admin.php">';
+echo '<span class="glyphicon glyphicon-lock" aria-hidden="true">';
+echo '</span> Admin</a></li>';
+}
+?>
 </ul></div></div></div>
 
 <div class="container">
