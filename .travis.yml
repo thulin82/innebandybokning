@@ -4,6 +4,6 @@ php:
   - "5.4"
   - "5.3"
   
-  - pear install pear/PHP_CodeSniffer
+  - pyrus install pear/PHP_CodeSniffer
   - phpenv rehash
   - phpcs -i
