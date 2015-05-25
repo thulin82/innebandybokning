@@ -10,3 +10,5 @@ before_script:
 
 script:
   - phpcs -i
+  - phpcs -l --standard=PEAR
+  - phpcs -l --standard=Zend
