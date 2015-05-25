@@ -78,8 +78,8 @@ if ((!isset($_SESSION['sess_user'])) || ($_SESSION['sess_id'] == 1)) {
 
 <?php
 $sess_id = $_SESSION['sess_id'];
-if ($sess_id == 2){
-echo "Du är inloggad som admin";
+if ($sess_id == 2) {
+    echo "Du är inloggad som admin";
 }
 ?>
 
