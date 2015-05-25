@@ -19,4 +19,3 @@ before_script:
 script:
   - phpcs -i
   - phpcs --standard=PEAR /home/travis/build/thulin82/innebandybokning
-  - phpcs --standard=Zend /home/travis/build/thulin82/innebandybokning
