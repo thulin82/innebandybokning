@@ -12,13 +12,13 @@
 */
 session_start();
  
-require "connect.php";
-require "functions.php";
-$mysqli->set_charset("utf8");
+require 'connect.php';
+require 'functions.php';
+$mysqli->set_charset('utf8');
 
 // I session set = user logged in
 if (!isset($_SESSION['sess_user'])) {
-    header("Location: index.php");
+    header('Location: index.php');
     exit;
 }
 ?>

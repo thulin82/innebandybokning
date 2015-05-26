@@ -12,29 +12,29 @@
 */
 session_start();
  
-require "connect.php";
-require "functions.php";
-$mysqli->set_charset("utf8");
+require 'connect.php';
+require 'functions.php';
+$mysqli->set_charset('utf8');
 
 //Login
 if (isset($_POST['submit'])) {
-    $_POST = dbEscape($_POST);
+    $_POST  = dbEscape($_POST);
     $passwd = filter_var($_POST['passwd'], FILTER_SANITIZE_STRING);
-    $user = filter_var($_POST['user'], FILTER_SANITIZE_STRING);
-    $query = "SELECT id FROM password WHERE password='$passwd'";
+    $user   = filter_var($_POST['user'], FILTER_SANITIZE_STRING);
+    $query  = "SELECT id FROM password WHERE password='$passwd'";
     $result = $mysqli->query($query);
  
     //User not found, return with "bad login"
     if ($result->num_rows == 0) {
-        header("Location: index.php?badlogin=");
+        header('Location: index.php?badlogin=');
         exit;
     }
  
     // User found, set session and forward to book.php
     $row = $result->fetch_array();
-    $_SESSION['sess_id'] = $row['id'];
+    $_SESSION['sess_id']   = $row['id'];
     $_SESSION['sess_user'] = $user;
-    header("Location: book.php");
+    header('Location: book.php');
     exit;
 }
 
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
-    header("Location: index.php");
+    header('Location: index.php');
     exit;
 }
 ?>

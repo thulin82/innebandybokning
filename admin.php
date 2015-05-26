@@ -12,13 +12,13 @@
 */
 session_start();
  
-require "connect.php";
-require "functions.php";
-$mysqli->set_charset("utf8");
+require 'connect.php';
+require 'functions.php';
+$mysqli->set_charset('utf8');
 
 // I session set = user logged in
 if ((!isset($_SESSION['sess_user'])) || ($_SESSION['sess_id'] == 1)) {
-    header("Location: index.php");
+    header('Location: index.php');
     exit;
 }
 ?>
@@ -87,7 +87,7 @@ if ($sess_id == 2) {
 <?php
 $sess_id = $_SESSION['sess_id'];
 if ($sess_id == 2) {
-    echo "Du är inloggad som admin";
+    echo 'Du är inloggad som admin';
 }
 ?>
 
