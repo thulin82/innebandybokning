@@ -12,13 +12,13 @@
 */
 session_start();
  
-require "connect.php";
-require "functions.php";
-$mysqli->set_charset("utf8");
+require 'connect.php';
+require 'functions.php';
+$mysqli->set_charset('utf8');
 
 // I session set = user logged in
 if (!isset($_SESSION['sess_user'])) {
-    header("Location: index.php");
+    header('Location: index.php');
     exit;
 }
 ?>
@@ -87,7 +87,7 @@ if ($sess_id == 2) {
 <a href="http://getbootstrap.com/">bootstrap.</a> (v3.3.4)</p>
 <p>All information sparas i en MySql-databas och serverspråket är php</p>
 <p>För information om sidan kontakta admin.</p>
-<p>&copy; Markus Thulin 2012-<?php echo date("Y"); ?></p>
+<p>&copy; Markus Thulin 2012-<?php echo date('Y'); ?></p>
 
 </div> <!-- /container -->
 
