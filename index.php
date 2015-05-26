@@ -21,7 +21,6 @@ if (isset($_POST['submit'])) {
     $_POST  = dbEscape($_POST);
     $passwd = filter_var($_POST['passwd'], FILTER_SANITIZE_STRING);
     $user   = filter_var($_POST['user'], FILTER_SANITIZE_STRING);
-    //$query  = "SELECT id FROM password WHERE password='$passwd'";
     $query  = sprintf("SELECT id FROM password WHERE password='%s'", $passwd);
     $result = $mysqli->query($query);
  
