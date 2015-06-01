@@ -13,7 +13,7 @@
 session_start();
  
 require 'connect.php';
-require 'functions.php';
+require 'src/Functions.php';
 $mysqli->set_charset('utf8');
 
 // I session set = user logged in
