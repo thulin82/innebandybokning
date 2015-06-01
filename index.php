@@ -18,8 +18,8 @@ $mysqli->set_charset('utf8');
 
 //Login
 if (isset($_POST['submit'])) {
-    $clean = new Functions();
-    $_POST = $clean->dbEscape($_POST);
+    $clean  = new Functions();
+    $_POST  = $clean->dbEscape($_POST);
     $passwd = filter_var($_POST['passwd'], FILTER_SANITIZE_STRING);
     $user   = filter_var($_POST['user'], FILTER_SANITIZE_STRING);
     $query  = sprintf("SELECT id FROM password WHERE password='%s'", $passwd);

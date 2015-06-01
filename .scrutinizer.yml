@@ -3,7 +3,6 @@ checks:
         code_rating: true
         duplication: true
         uppercase_constants: true
-        properties_in_camelcaps: true
         parameters_in_camelcaps: true
         parameter_doc_comments: true
         optional_parameters_at_the_end: true
@@ -40,3 +39,5 @@ checks:
             type_name: '^[A-Z][a-zA-Z0-9]*$'
             exception_name: '^[A-Z][a-zA-Z0-9]*Exception$'
             isser_method_name: '^(?:is|has|should|may|supports)'
+        one_class_per_file: false
+        side_effects_or_types: false
