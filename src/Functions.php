@@ -64,10 +64,11 @@ class Functions
     * @license  http://www.opensource.org/licenses/mit-license.php MIT
     * @link     https://github.com/thulin82/innebandybokning
     *
-    * @return String $output
+    * @return Array<String>|String $output
     */
     public function sanitize($input)
     {
+        $output ='';
         if (is_array($input)) {
             foreach ($input as $var=>$val) {
                 $output[$var] = self::sanitize($val);
