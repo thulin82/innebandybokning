@@ -24,11 +24,11 @@
 class Functions
 {
     /**
-    * DataBase Escape
+    * Clean Input
     *
     * PHP version 5
     *
-    * @param String $post The Post you want to "wash"
+    * @param String $input The string you want to clean
     *
     * @category Functions
     * @package  Innebandybokning
@@ -36,21 +36,45 @@ class Functions
     * @license  http://www.opensource.org/licenses/mit-license.php MIT
     * @link     https://github.com/thulin82/innebandybokning
     *
-    * @return String $post
+    * @return String $output
     */
-    public function dbEscape($post)
+    function cleanInput($input)
     {
-        if (is_string($post)) {
-            if (get_magic_quotes_gpc()) {
-                $post = stripslashes($post);
+        $search = array(
+        '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+        '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+        '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+        '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+        );
+
+        $output = preg_replace($search, '', $input);
+        return $output;
+    }
+
+    /**
+    * Sanitize
+    *
+    * PHP version 5
+    *
+    * @param String $input The string you want to clean
+    *
+    * @category Functions
+    * @package  Innebandybokning
+    * @author   Markus Thulin <macky_b@hotmail.com>
+    * @license  http://www.opensource.org/licenses/mit-license.php MIT
+    * @link     https://github.com/thulin82/innebandybokning
+    *
+    * @return String $output
+    */
+    function sanitize($input)
+    {
+        if (is_array($input)) {
+            foreach ($input as $var=>$val) {
+                $output[$var] = self::sanitize($val);
             }
-            return $post;
+        } else {
+            $output  = self::cleanInput($input);
         }
-    
-        foreach ($post as $key => $val) {
-            $post[$key] = dbEscape($val);
-        }
-       
-        return $post;
+        return $output;
     }
 }

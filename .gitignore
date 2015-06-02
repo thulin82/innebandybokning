@@ -7,3 +7,7 @@ js
 PHPMailer_v5.1
 
 #During development
+
+#Tests
+report
+coverage.clover
