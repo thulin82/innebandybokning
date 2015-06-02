@@ -38,7 +38,7 @@ class Functions
     *
     * @return String $output
     */
-    function cleanInput($input)
+    public function cleanInput($input)
     {
         $search = array(
         '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
@@ -66,14 +66,14 @@ class Functions
     *
     * @return String $output
     */
-    function sanitize($input)
+    public function sanitize($input)
     {
         if (is_array($input)) {
             foreach ($input as $var=>$val) {
                 $output[$var] = self::sanitize($val);
             }
         } else {
-            $output  = self::cleanInput($input);
+            $output = self::cleanInput($input);
         }
         return $output;
     }
