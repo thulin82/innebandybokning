@@ -16,7 +16,12 @@ before_script:
   - echo Home dir is `echo ~`
   - pyrus install pear/PHP_CodeSniffer
   - phpenv rehash
+  - wget https://scrutinizer-ci.com/ocular.phar
 
 script:
   - phpcs -i
   - phpcs --standard=PEAR /home/travis/build/thulin82/innebandybokning
+  - phpunit
+  
+after_script:
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover

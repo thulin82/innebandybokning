@@ -41,3 +41,7 @@ checks:
             isser_method_name: '^(?:is|has|should|may|supports)'
         one_class_per_file: false
         side_effects_or_types: false
+filter:
+    excluded_paths: [test/*]
+tools:
+    external_code_coverage: true
