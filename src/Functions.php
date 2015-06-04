@@ -28,7 +28,7 @@ class Functions
     *
     * PHP version 5
     *
-    * @param String $input The string you want to clean
+    * @param string $input The string you want to clean
     *
     * @category Functions
     * @package  Innebandybokning
@@ -36,7 +36,7 @@ class Functions
     * @license  http://www.opensource.org/licenses/mit-license.php MIT
     * @link     https://github.com/thulin82/innebandybokning
     *
-    * @return String $output
+    * @return string $output
     */
     public function cleanInput($input)
     {
@@ -56,7 +56,7 @@ class Functions
     *
     * PHP version 5
     *
-    * @param String $input The string you want to clean
+    * @param string $input The string you want to clean
     *
     * @category Functions
     * @package  Innebandybokning
@@ -64,7 +64,7 @@ class Functions
     * @license  http://www.opensource.org/licenses/mit-license.php MIT
     * @link     https://github.com/thulin82/innebandybokning
     *
-    * @return Array|String $output
+    * @return string $output
     */
     public function sanitize($input)
     {
