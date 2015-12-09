@@ -90,6 +90,16 @@ if ($sess_id == 2) {
     echo 'Du är inloggad som admin';
 }
 ?>
+<br><br>
+<h3>Ej svarat denna vecka:</h3>
+<?php
+//Get name and mail for those who have attending==2 (no respone yet)
+$result = $mysqli->query("SELECT DISTINCT name, mail FROM users WHERE attend='2' ORDER BY id ASC");
+$row = $result->fetch_all(MYSQLI_ASSOC);
+foreach ($row as $key => $value) {
+    echo $value['name'] . " (" . $value['mail'] . ")" . "<br>";
+}
+?>
 
 </div> <!-- /container -->
 
