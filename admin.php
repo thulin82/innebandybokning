@@ -98,9 +98,9 @@ $result = $mysqli->query(
     "SELECT DISTINCT name, mail
     FROM users WHERE attend='2' ORDER BY id ASC"
 );
-$row = $result->fetch_all(MYSQLI_ASSOC);
+$row    = $result->fetch_all(MYSQLI_ASSOC);
 foreach ($row as $key => $value) {
-    echo $value['name'] . " (" . $value['mail'] . ")" . "<br>";
+    echo $value['name'] . ' (' . $value['mail'] . ')' . '<br>';
 }
 ?>
 
