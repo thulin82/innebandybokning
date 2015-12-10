@@ -192,6 +192,58 @@ echo '</tbody></table>';
 ?>
 </div>
 </div>
+<div class="row">
+<div class="col-md-3">
+<h3>Hösten 2014</h3>
+<?php
+//Get name and attends for all involved autumn 2012
+$result = $mysqli->query(
+    'SELECT `name`, `aut2014` FROM `stats` WHERE `aut2014`!=0 
+    ORDER BY `aut2014` DESC'
+);
+$row    = $result->fetch_all(MYSQLI_NUM);
+echo '<table class="table table-striped">';
+echo '<thead><tr><th>Namn</th><th>Antal</th></tr></thead><tbody>';
+foreach ($row as $key => $value) {
+    echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
+}
+echo '</tbody></table>';
+?>
+</div>
+<div class="col-md-3">
+<h3>Våren 2015</h3>
+<?php
+//Get name and attends for all involved autumn 2012
+$result = $mysqli->query(
+    'SELECT `name`, `spring2015` FROM `stats` WHERE `spring2015`!=0 
+    ORDER BY `spring2015` DESC'
+);
+$row    = $result->fetch_all(MYSQLI_NUM);
+echo '<table class="table table-striped">';
+echo '<thead><tr><th>Namn</th><th>Antal</th></tr></thead><tbody>';
+foreach ($row as $key => $value) {
+    echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
+}
+echo '</tbody></table>';
+?>
+</div>
+<div class="col-md-3">
+<h3>Hösten 2015</h3>
+<?php
+//Get name and attends for all involved autumn 2012
+$result = $mysqli->query(
+    'SELECT `name`, `aut2015` FROM `stats` WHERE `aut2015`!=0 
+    ORDER BY `aut2015` DESC'
+);
+$row    = $result->fetch_all(MYSQLI_NUM);
+echo '<table class="table table-striped">';
+echo '<thead><tr><th>Namn</th><th>Antal</th></tr></thead><tbody>';
+foreach ($row as $key => $value) {
+    echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
+}
+echo '</tbody></table>';
+?>
+</div></div>
 </div> <!-- /container -->
 
 
