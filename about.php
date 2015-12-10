@@ -84,7 +84,7 @@ if ($sess_id == 2) {
 
 <h1>Om...</h1><br>
 <p>Denna sida är byggd med hjälp av
-<a href="http://getbootstrap.com/">bootstrap.</a> (v3.3.4)</p>
+<a href="http://getbootstrap.com/">bootstrap.</a> (v3.3.6)</p>
 <p>All information sparas i en MySql-databas och serverspråket är php</p>
 <p>För information om sidan kontakta admin.</p>
 <p>&copy; Markus Thulin 2012-<?php echo date('Y'); ?></p>
