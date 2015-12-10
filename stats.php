@@ -84,7 +84,43 @@ if ($sess_id == 2) {
 
 <h1>Statistik</h1>
 
-
+<br>
+<div class="row">
+<div class="col-md-6">
+<h3>Topp-10 Medverkan (totalt)</h3>
+<?php
+//Get name and nbr of attends for those on the top ten list
+$result = $mysqli->query(
+    "SELECT `name`, `aut2012`+`spring2013`+`aut2013`+`spring2014`+`aut2014`+
+	`spring2015`+`aut2015` FROM `stats` ORDER BY `aut2012`+`spring2013`+
+	`aut2013`+`spring2014`+`aut2014`+`spring2015`+`aut2015` DESC LIMIT 10"
+);
+$row    = $result->fetch_all(MYSQLI_NUM);
+echo '<table class="table table-striped">';
+echo '<thead><tr><th>Namn</th><th>Totalt</th></tr></thead><tbody>';
+foreach ($row as $key => $value) {
+	echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
+}
+echo '</tbody></table>';
+?>
+</div>
+<div class="col-md-6">
+<h3>Topp-10 Medverkan (antal säsonger)</h3>
+<?php
+//Get name and nbr of seasons for those on the top ten list
+$result = $mysqli->query(
+    "SELECT `name`, `nbr_seasons` FROM `stats` ORDER BY `nbr_seasons`
+	DESC LIMIT 10"
+);
+$row    = $result->fetch_all(MYSQLI_NUM);
+echo '<table class="table table-striped">';
+echo '<thead><tr><th>Namn</th><th>Antal Säsonger</th></tr></thead><tbody>';
+foreach ($row as $key => $value) {
+	echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
+}
+echo '</tbody></table>';
+?>
+</div></div>
 </div> <!-- /container -->
 
 
