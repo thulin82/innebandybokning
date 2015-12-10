@@ -1,7 +1,6 @@
 checks:
     php:
         code_rating: true
-        duplication: true
         uppercase_constants: true
         parameters_in_camelcaps: true
         parameter_doc_comments: true
