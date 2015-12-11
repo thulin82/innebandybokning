@@ -41,6 +41,18 @@ CREATE TABLE `weekdata` (
   `currentweek` int,
   `date` varchar
 );
+CREATE TABLE `stats` (
+  `id` int,
+  `name` varchar,
+  `aut2012` int,
+  `spring2013` int,
+  `aut2013` int,
+  `spring2014` int,
+  `aut2014` int,
+  `spring2015` int,
+  `aut2015` int,
+  `nbr_seasons` int
+);
 ```
 ### User Data
 Replace these varibales in connect.php with your dB-info

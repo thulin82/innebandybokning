@@ -154,6 +154,13 @@ showStatsForSeason('spring2015');
 //Get name and attends for all involved autumn 2015
 showStatsForSeason('aut2015');
 ?>
+</div>
+<div class="col-md-3">
+<h3>Våren 2016</h3>
+<?php
+//Get name and attends for all involved spring 2016
+//showStatsForSeason('spring2016');
+?>
 </div></div>
 </div> <!-- /container -->
 
