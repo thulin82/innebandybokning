@@ -89,56 +89,38 @@ if ($sess_id == 2) {
 
 $result = $mysqli->query('SELECT * FROM users ORDER BY id ASC');
 $row    = $result->fetch_all(MYSQLI_ASSOC);
-$i=1;
-$j=101;
+$i      = 1;
+$j      = 101;
 echo '<table class="table table-striped"><thead><tr><th>ID</th><th>Namn</th><th>';
 echo 'Kommer?</th><th>&Auml;ndra</th><th>G&auml;ster</th></tr></thead><tbody>';
 foreach ($row as $key => $value) {
     echo '<tr><td>' . $value['id'] . '</td><td>' . $value['name'] . '</td><td>';
-    if($value['attend'] == 1)
-    {
+    if($value['attend'] == 1) {
         echo '<span class="label label-success">Kommer</span>';
-    }
-    else if($value['attend'] == 2)
-    {
+    } else if($value['attend'] == 2) {
         echo '<span class="label label-warning">Ej Svarat</span>';
-    }
-    else
-    {
+    } else {
         echo '<span class="label label-danger">Kommer Ej</span>';
-    }	 
+    }
     echo '</td><td><form name="form" method="post"><input type="submit"';
     echo 'name="' . $i . '" value="&Auml;ndra" /></form></td>';
     $nbr_of_attends = getNbrOfAttends();
-    $enable_guests = getIsGuestsEnabled();
-    if (($enable_guests == 1) && ($nbr_of_attends < 8 ))
-    {
+    $enable_guests  = getIsGuestsEnabled();
+    if (($enable_guests == 1) && ($nbr_of_attends < 8 )) {
         echo '<td><form name="form" method="post"><input type="text" ';
         echo 'class="input-span1" name="' . $j . '" value="';
         echo $value['guests'] . '"/></form></td>';
-    }
-    else
-    {
+    } else {
         echo '<td><form name="form" method="post"><input type="text" ';
         echo 'class="input-span1" name="' . $j . '" value="';
         echo $value['guests'] . '" disabled/></form></td>';
     }
-
     echo '</tr>';
     $i++;
     $j++;
 }
-
 echo '</tbody></table>';
-  
-
-
 ?>
-
-
-
-
-
 </div> <!-- /container -->
 
 

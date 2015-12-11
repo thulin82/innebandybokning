@@ -109,11 +109,11 @@ function getNbrOfAttends()
     return $row[0]['Attending'];
 }
 
-    // /**
-    // * GetIsGuestsEnabled
-    // *
-    // * @return bool Guests enabled or not
-    // */
+    /**
+    * GetIsGuestsEnabled
+    *
+    * @return int Guests enabled or not
+    */
 function getIsGuestsEnabled()
 {
     include 'connect.php';
