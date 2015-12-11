@@ -95,9 +95,9 @@ echo '<table class="table table-striped"><thead><tr><th>ID</th><th>Namn</th><th>
 echo 'Kommer?</th><th>&Auml;ndra</th><th>G&auml;ster</th></tr></thead><tbody>';
 foreach ($row as $key => $value) {
     echo '<tr><td>' . $value['id'] . '</td><td>' . $value['name'] . '</td><td>';
-    if($value['attend'] == 1) {
+    if ($value['attend'] == 1) {
         echo '<span class="label label-success">Kommer</span>';
-    } else if($value['attend'] == 2) {
+    } else if ($value['attend'] == 2) {
         echo '<span class="label label-warning">Ej Svarat</span>';
     } else {
         echo '<span class="label label-danger">Kommer Ej</span>';
