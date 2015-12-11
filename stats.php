@@ -129,28 +129,28 @@ echo '</tbody></table>';
 <h3>Hösten 2012</h3>
 <?php
 //Get name and attends for all involved autumn 2012
-show_stats_for_season('aut2012');
+showStatsForSeason('aut2012');
 ?>
 </div>
 <div class="col-md-3">
 <h3>Våren 2013</h3>
 <?php
 //Get name and attends for all involved spring 2013
-show_stats_for_season('spring2013');
+showStatsForSeason('spring2013');
 ?>
 </div>
 <div class="col-md-3">
 <h3>Hösten 2013</h3>
 <?php
 //Get name and attends for all involved autumn 2013
-show_stats_for_season('aut2013');
+showStatsForSeason('aut2013');
 ?>
 </div>
 <div class="col-md-3">
 <h3>Våren 2014</h3>
 <?php
 //Get name and attends for all involved spring 2014
-show_stats_for_season('spring2014');
+showStatsForSeason('spring2014');
 ?>
 </div>
 </div>
@@ -159,21 +159,21 @@ show_stats_for_season('spring2014');
 <h3>Hösten 2014</h3>
 <?php
 //Get name and attends for all involved autumn 2014
-show_stats_for_season('aut2014');
+showStatsForSeason('aut2014');
 ?>
 </div>
 <div class="col-md-3">
 <h3>Våren 2015</h3>
 <?php
 //Get name and attends for all involved spring 2015
-show_stats_for_season('spring2015');
+showStatsForSeason('spring2015');
 ?>
 </div>
 <div class="col-md-3">
 <h3>Hösten 2015</h3>
 <?php
 //Get name and attends for all involved autumn 2015
-show_stats_for_season('aut2015');
+showStatsForSeason('aut2015');
 ?>
 </div></div>
 </div> <!-- /container -->

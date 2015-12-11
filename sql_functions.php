@@ -10,8 +10,17 @@
 * @license  http://www.opensource.org/licenses/mit-license.php MIT
 * @link     https://github.com/thulin82/innebandybokning
 */
-function show_stats_for_season($season){
-    require 'connect.php';
+
+    /**
+    * ShowStatsForSeason
+    *
+    * @param string $season The season you want to get stats for
+    *
+    * @return void
+    */
+function showStatsForSeason($season)
+{
+    include 'connect.php';
     $mysqli->set_charset('utf8');
 
     $query  = sprintf(
