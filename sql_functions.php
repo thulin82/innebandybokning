@@ -16,14 +16,15 @@
     *
     * @param string $head1 The First header
     * @param string $head2 The Second header
-    * @param array $data The Array containg the data to be printed
+    * @param array  $data  The Array containg the data to be printed
     *
     * @return void
     */
 function printTable($head1, $head2, $data)
 {
     echo '<table class="table table-striped">';
-    echo '<thead><tr><th>' . $head1 . '</th><th>' . $head2 . '</th></tr></thead><tbody>';
+    echo '<thead><tr><th>' . $head1 . '</th><th>' . $head2;
+    echo '</th></tr></thead><tbody>';
     foreach ($data as $key => $value) {
         echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
     }
