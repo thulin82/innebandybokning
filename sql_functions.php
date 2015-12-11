@@ -51,7 +51,7 @@ function showStatsForSeason($season)
     $result = $mysqli->query($query);
     $row    = $result->fetch_all(MYSQLI_NUM);
 
-    printTable("Namn", "Antal", $row);
+    printTable('Namn', 'Antal', $row);
 }
 
     /**
@@ -71,7 +71,7 @@ function showStatsTopTenTotal()
     );
     $row    = $result->fetch_all(MYSQLI_NUM);
 
-    printTable("Namn", "Totalt", $row);
+    printTable('Namn', 'Totalt', $row);
 }
 
     /**
@@ -90,5 +90,5 @@ function showStatsTopTenSeasons()
     );
     $row    = $result->fetch_all(MYSQLI_NUM);
 
-    printTable("Namn", "Antal S&auml;songer", $row);
+    printTable('Namn', 'Antal S&auml;songer', $row);
 }
