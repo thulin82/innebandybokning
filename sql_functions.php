@@ -24,7 +24,7 @@ function showStatsForSeason($season)
     $mysqli->set_charset('utf8');
 
     $query  = sprintf(
-        "SELECT `name`, `%s` FROM `stats` WHERE `%s`!=0 ORDER BY `%s` DESC", 
+        'SELECT `name`, `%s` FROM `stats` WHERE `%s`!=0 ORDER BY `%s` DESC', 
         $mysqli->real_escape_string($season), $mysqli->real_escape_string($season), 
         $mysqli->real_escape_string($season)
     );
@@ -38,4 +38,3 @@ function showStatsForSeason($season)
     }
     echo '</tbody></table>';  
 }
-?>
