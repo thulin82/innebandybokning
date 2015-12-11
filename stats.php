@@ -14,6 +14,7 @@ session_start();
  
 require 'connect.php';
 require 'src/Functions.php';
+require 'sql_functions.php';
 $mysqli->set_charset('utf8');
 
 // I session set = user logged in
@@ -21,6 +22,7 @@ if (!isset($_SESSION['sess_user'])) {
     header('Location: index.php');
     exit;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -127,68 +129,28 @@ echo '</tbody></table>';
 <h3>Hösten 2012</h3>
 <?php
 //Get name and attends for all involved autumn 2012
-$result = $mysqli->query(
-    'SELECT `name`, `aut2012` FROM `stats` WHERE `aut2012`!=0 
-    ORDER BY `aut2012` DESC'
-);
-$row    = $result->fetch_all(MYSQLI_NUM);
-echo '<table class="table table-striped">';
-echo '<thead><tr><th>Namn</th><th>Antal</th></tr></thead><tbody>';
-foreach ($row as $key => $value) {
-    echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
-}
-echo '</tbody></table>';
+show_stats_for_season('aut2012');
 ?>
 </div>
 <div class="col-md-3">
 <h3>Våren 2013</h3>
 <?php
 //Get name and attends for all involved spring 2013
-$result = $mysqli->query(
-    'SELECT `name`, `spring2013` FROM `stats` WHERE `spring2013`!=0 
-    ORDER BY `spring2013` DESC'
-);
-$row    = $result->fetch_all(MYSQLI_NUM);
-echo '<table class="table table-striped">';
-echo '<thead><tr><th>Namn</th><th>Antal</th></tr></thead><tbody>';
-foreach ($row as $key => $value) {
-    echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
-}
-echo '</tbody></table>';
+show_stats_for_season('spring2013');
 ?>
 </div>
 <div class="col-md-3">
 <h3>Hösten 2013</h3>
 <?php
 //Get name and attends for all involved autumn 2013
-$result = $mysqli->query(
-    'SELECT `name`, `aut2013` FROM `stats` WHERE `aut2013`!=0 
-    ORDER BY `aut2013` DESC'
-);
-$row    = $result->fetch_all(MYSQLI_NUM);
-echo '<table class="table table-striped">';
-echo '<thead><tr><th>Namn</th><th>Antal</th></tr></thead><tbody>';
-foreach ($row as $key => $value) {
-    echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
-}
-echo '</tbody></table>';
+show_stats_for_season('aut2013');
 ?>
 </div>
 <div class="col-md-3">
 <h3>Våren 2014</h3>
 <?php
-//Get name and attends for all involved autumn 2013
-$result = $mysqli->query(
-    'SELECT `name`, `spring2014` FROM `stats` WHERE `spring2014`!=0 
-    ORDER BY `spring2014` DESC'
-);
-$row    = $result->fetch_all(MYSQLI_NUM);
-echo '<table class="table table-striped">';
-echo '<thead><tr><th>Namn</th><th>Antal</th></tr></thead><tbody>';
-foreach ($row as $key => $value) {
-    echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
-}
-echo '</tbody></table>';
+//Get name and attends for all involved spring 2014
+show_stats_for_season('spring2014');
 ?>
 </div>
 </div>
@@ -196,52 +158,22 @@ echo '</tbody></table>';
 <div class="col-md-3">
 <h3>Hösten 2014</h3>
 <?php
-//Get name and attends for all involved autumn 2012
-$result = $mysqli->query(
-    'SELECT `name`, `aut2014` FROM `stats` WHERE `aut2014`!=0 
-    ORDER BY `aut2014` DESC'
-);
-$row    = $result->fetch_all(MYSQLI_NUM);
-echo '<table class="table table-striped">';
-echo '<thead><tr><th>Namn</th><th>Antal</th></tr></thead><tbody>';
-foreach ($row as $key => $value) {
-    echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
-}
-echo '</tbody></table>';
+//Get name and attends for all involved autumn 2014
+show_stats_for_season('aut2014');
 ?>
 </div>
 <div class="col-md-3">
 <h3>Våren 2015</h3>
 <?php
-//Get name and attends for all involved autumn 2012
-$result = $mysqli->query(
-    'SELECT `name`, `spring2015` FROM `stats` WHERE `spring2015`!=0 
-    ORDER BY `spring2015` DESC'
-);
-$row    = $result->fetch_all(MYSQLI_NUM);
-echo '<table class="table table-striped">';
-echo '<thead><tr><th>Namn</th><th>Antal</th></tr></thead><tbody>';
-foreach ($row as $key => $value) {
-    echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
-}
-echo '</tbody></table>';
+//Get name and attends for all involved spring 2015
+show_stats_for_season('spring2015');
 ?>
 </div>
 <div class="col-md-3">
 <h3>Hösten 2015</h3>
 <?php
-//Get name and attends for all involved autumn 2012
-$result = $mysqli->query(
-    'SELECT `name`, `aut2015` FROM `stats` WHERE `aut2015`!=0 
-    ORDER BY `aut2015` DESC'
-);
-$row    = $result->fetch_all(MYSQLI_NUM);
-echo '<table class="table table-striped">';
-echo '<thead><tr><th>Namn</th><th>Antal</th></tr></thead><tbody>';
-foreach ($row as $key => $value) {
-    echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
-}
-echo '</tbody></table>';
+//Get name and attends for all involved autumn 2015
+show_stats_for_season('aut2015');
 ?>
 </div></div>
 </div> <!-- /container -->
