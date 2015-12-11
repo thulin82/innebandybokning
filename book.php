@@ -14,6 +14,7 @@ session_start();
  
 require 'connect.php';
 require 'src/Functions.php';
+require 'sql_functions.php';
 $mysqli->set_charset('utf8');
 
 // I session set = user logged in
@@ -81,7 +82,61 @@ if ($sess_id == 2) {
 </ul></div></div></div>
 
 <div class="container">
-<h1>Bokning för måndag xx/xx</h1><br>
+<h1>Bokningsschema för måndag xx/xx</h1><br>
+
+
+<?php
+
+$result = $mysqli->query('SELECT * FROM users ORDER BY id ASC');
+$row    = $result->fetch_all(MYSQLI_ASSOC);
+$i=1;
+$j=101;
+echo '<table class="table table-striped"><thead><tr><th>ID</th><th>Namn</th><th>';
+echo 'Kommer?</th><th>&Auml;ndra</th><th>G&auml;ster</th></tr></thead><tbody>';
+foreach ($row as $key => $value) {
+    echo '<tr><td>' . $value['id'] . '</td><td>' . $value['name'] . '</td><td>';
+    if($value['attend'] == 1)
+    {
+        echo '<span class="label label-success">Kommer</span>';
+    }
+    else if($value['attend'] == 2)
+    {
+        echo '<span class="label label-warning">Ej Svarat</span>';
+    }
+    else
+    {
+        echo '<span class="label label-danger">Kommer Ej</span>';
+    }	 
+    echo '</td><td><form name="form" method="post"><input type="submit"';
+    echo 'name="' . $i . '" value="&Auml;ndra" /></form></td>';
+    $nbr_of_attends = getNbrOfAttends();
+    $enable_guests = getIsGuestsEnabled();
+    if (($enable_guests == 1) && ($nbr_of_attends < 8 ))
+    {
+        echo '<td><form name="form" method="post"><input type="text" ';
+        echo 'class="input-span1" name="' . $j . '" value="';
+        echo $value['guests'] . '"/></form></td>';
+    }
+    else
+    {
+        echo '<td><form name="form" method="post"><input type="text" ';
+        echo 'class="input-span1" name="' . $j . '" value="';
+        echo $value['guests'] . '" disabled/></form></td>';
+    }
+
+    echo '</tr>';
+    $i++;
+    $j++;
+}
+
+echo '</tbody></table>';
+  
+
+
+?>
+
+
+
 
 
 </div> <!-- /container -->

@@ -92,3 +92,35 @@ function showStatsTopTenSeasons()
 
     printTable('Namn', 'Antal S&auml;songer', $row);
 }
+
+    /**
+    * GetNbrOfAttends
+    *
+    * @return int Number of attending 
+    */
+function getNbrOfAttends()
+{
+    include 'connect.php';
+    $mysqli->set_charset('utf8');
+    $result = $mysqli->query(
+        'SELECT COUNT(attend) AS Attending FROM users WHERE attend=1'
+    );
+    $row    = $result->fetch_all(MYSQLI_ASSOC);
+    return $row[0]['Attending'];
+}
+
+    // /**
+    // * GetIsGuestsEnabled
+    // *
+    // * @return bool Guests enabled or not
+    // */
+function getIsGuestsEnabled()
+{
+    include 'connect.php';
+    $mysqli->set_charset('utf8');
+    $result = $mysqli->query(
+        'SELECT `value` FROM `variables` WHERE `name`="enable_guests"'
+    );
+    $row    = $result->fetch_all(MYSQLI_ASSOC);
+    return $row[0]['value'];
+}
