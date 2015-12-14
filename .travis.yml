@@ -18,10 +18,7 @@ before_script:
   - echo Start travis
   - echo Current dir is `pwd`
   - echo Home dir is `echo ~`
-  - wget https://packages.zendframework.com/pyrus.phar
-  - php pyrus.phar . channel-discover packages.zendframework.com
-  - php pyrus.phar . install zf2/Zend_Framework#Standard
-  - php pyrus.phar install pear/PHP_CodeSniffer
+  - pyrus install pear/PHP_CodeSniffer
   - phpenv rehash
   - wget https://scrutinizer-ci.com/ocular.phar
 
