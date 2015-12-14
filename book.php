@@ -149,22 +149,16 @@ foreach ($row as $key => $value) {
     $j++;
 }
 echo '</tbody></table>';
-
 echo '<span class="label label-success">Kommer</span>';
 echo ' :  ' . $nbr_of_attends . '<br>';
-
 echo '<span class="label label-danger">Kommer Ej</span>';
 echo ' :  ' . $nbr_of_not_attends . '<br>';
-
 echo '<span class="label label-warning">Ej Svarat</span>';
 echo ' :  ' . $nbr_of_not_answered . '<br>';
-
 echo '<span class="label label-info">G&auml;ster</span>';
 echo ' :  ' . $nbr_of_guests . '<br>';
-
 echo '<h2><span class="label label-success">Totalt</span>';
 echo ' :  ' . $total . '</h2>';
-
 ?>
 </div> <!-- /container -->
 
