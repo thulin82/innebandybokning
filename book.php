@@ -22,9 +22,22 @@ if (!isset($_SESSION['sess_user'])) {
     header('Location: index.php');
     exit;
 }
-
+// This week's date
 $currentdate = getCalenderInfo('date');
+//This week's week nbr
 $currentweek = getCalenderInfo('week');
+//Nbr of attends for this week
+$nbr_of_attends = getNbrOfAttends('1');
+//Nbr of not attending for this week
+$nbr_of_not_attends = getNbrOfAttends('0');
+//Nbr of not answered for this week
+$nbr_of_not_answered = getNbrOfAttends('2');
+//Is guests enabled?
+$enable_guests  = getIsGuestsEnabled();
+//Nbr of guests for this week
+$nbr_of_guests = getNbrOfGuests();
+//Total nbr of attendees for this week (attends+guest)
+$total = $nbr_of_guests + $nbr_of_attends;
 ?>
 
 <!DOCTYPE html>
@@ -105,8 +118,6 @@ foreach ($row as $key => $value) {
     }
     echo '</td><td><form name="form" method="post"><input type="submit"';
     echo 'name="' . $i . '" value="&Auml;ndra" /></form></td>';
-    $nbr_of_attends = getNbrOfAttends();
-    $enable_guests  = getIsGuestsEnabled();
     if (($enable_guests == 1) && ($nbr_of_attends < 8 )) {
         echo '<td><form name="form" method="post"><input type="text" ';
         echo 'class="input-span1" name="' . $j . '" value="';
@@ -121,6 +132,25 @@ foreach ($row as $key => $value) {
     $j++;
 }
 echo '</tbody></table>';
+?>
+
+<?php
+
+echo '<span class="label label-success">Kommer</span>';
+echo ' :  ' . $nbr_of_attends . '<br>';
+
+echo '<span class="label label-danger">Kommer Ej</span>';
+echo ' :  ' . $nbr_of_not_attends . '<br>';
+
+echo '<span class="label label-warning">Ej Svarat</span>';
+echo ' :  ' . $nbr_of_not_answered . '<br>';
+
+echo '<span class="label label-success">G&auml;ster</span>';
+echo ' :  ' . $nbr_of_guests . '<br>';
+
+echo '<h2><span class="label label-success">Totalt</span>';
+echo ' :  ' . $total . '</h2><br>';
+
 ?>
 </div> <!-- /container -->
 

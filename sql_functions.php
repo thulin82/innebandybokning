@@ -96,17 +96,37 @@ function showStatsTopTenSeasons()
     /**
     * GetNbrOfAttends
     *
-    * @return int Number of attending 
+    * @param int $status The status integer
+    *
+    * @return int Number of attending/not attending/not answered
     */
-function getNbrOfAttends()
+function getNbrOfAttends($status)
+{
+    include 'connect.php';
+    $mysqli->set_charset('utf8');
+    $query  = sprintf(
+        'SELECT COUNT(`attend`) AS Attending FROM `users` WHERE `attend`=%d',
+        $status
+    );
+    $result = $mysqli->query($query);
+    $row    = $result->fetch_all(MYSQLI_ASSOC);
+    return $row[0]['Attending'];
+}
+
+    /**
+    * GetNbrOfGuests
+    *
+    * @return int Number of guests
+    */
+function getNbrOfGuests()
 {
     include 'connect.php';
     $mysqli->set_charset('utf8');
     $result = $mysqli->query(
-        'SELECT COUNT(attend) AS Attending FROM users WHERE attend=1'
+        'SELECT SUM( guests ) AS Guests FROM users WHERE attend = 1'
     );
     $row    = $result->fetch_all(MYSQLI_ASSOC);
-    return $row[0]['Attending'];
+    return $row[0]['Guests'];
 }
 
     /**
