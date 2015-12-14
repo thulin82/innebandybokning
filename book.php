@@ -22,22 +22,15 @@ if (!isset($_SESSION['sess_user'])) {
     header('Location: index.php');
     exit;
 }
-// This week's date
-$currentdate = getCalenderInfo('date');
-//This week's week nbr
-$currentweek = getCalenderInfo('week');
-//Nbr of attends for this week
-$nbr_of_attends = getNbrOfAttends('1');
-//Nbr of not attending for this week
-$nbr_of_not_attends = getNbrOfAttends('0');
-//Nbr of not answered for this week
-$nbr_of_not_answered = getNbrOfAttends('2');
-//Is guests enabled?
-$enable_guests  = getIsGuestsEnabled();
-//Nbr of guests for this week
-$nbr_of_guests = getNbrOfGuests();
-//Total nbr of attendees for this week (attends+guest)
-$total = $nbr_of_guests + $nbr_of_attends;
+
+$currentdate         = getCalenderInfo('date'); // This week's date
+$currentweek         = getCalenderInfo('week'); //This week's week nbr
+$nbr_of_attends      = getNbrOfAttends('1'); //Nbr of attends for this week
+$nbr_of_not_attends  = getNbrOfAttends('0'); //Nbr of not attending for this week
+$nbr_of_not_answered = getNbrOfAttends('2'); //Nbr of not answered for this week
+$enable_guests       = getIsGuestsEnabled(); //Is guests enabled?
+$nbr_of_guests       = getNbrOfGuests(); //Nbr of guests for this week
+$total               = $nbr_of_guests + $nbr_of_attends; //Total nbr of attendees
 ?>
 
 <!DOCTYPE html>
