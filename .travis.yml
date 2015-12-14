@@ -22,12 +22,13 @@ before_script:
   - cd PHP_CodeSniffer
   - php scripts/phpcs -h
   - php scripts/phpcbf -h
+  - cd ..
   - phpenv rehash
   - wget https://scrutinizer-ci.com/ocular.phar
 
 script:
-  - phpcs -i
-  - phpcs --standard=PEAR /home/travis/build/thulin82/innebandybokning
+  - php PHP_CodeSniffer/scripts/phpcs -i
+  - php PHP_CodeSniffer/scripts/phpcs --standard=PEAR /home/travis/build/thulin82/innebandybokning
   - phpunit
   
 after_script:
