@@ -28,6 +28,7 @@ before_script:
 script:
   - php PHP_CodeSniffer/scripts/phpcs -i
   - php PHP_CodeSniffer/scripts/phpcs --standard=PEAR /home/travis/build/thulin82/innebandybokning
+  - cd innebandybokning
   - phpunit
   
 after_script:
