@@ -23,15 +23,25 @@ if (!isset($_SESSION['sess_user'])) {
     header('Location: index.php');
     exit;
 }
-
+// If 0, reset attendees
 if (isset($_POST['0'])) {
     $mysqli->query('UPDATE users SET attend = 0');
 }
-
+// If 1-15, change attending status
 for ($i = 1; $i <= $nbr_of_users; $i++) {
     if (isset($_POST["$i"])) {
         $query = sprintf(
             'UPDATE users SET attend = IF(attend=1, 0, 1) WHERE id =%d', $i
+        );
+        $mysqli->query($query);
+    }
+}
+// If 101-115, change attending guests
+for ($j = 101; $j <= (101 + $nbr_of_users); $j++) {
+    if (isset($_POST["$j"])) {
+        $t = $_POST["$j"];
+        $query = sprintf(
+            'UPDATE users SET guests = %d WHERE id=%d', $t, ($j-100)
         );
         $mysqli->query($query);
     }
@@ -153,7 +163,7 @@ echo '<span class="label label-info">G&auml;ster</span>';
 echo ' :  ' . $nbr_of_guests . '<br>';
 
 echo '<h2><span class="label label-success">Totalt</span>';
-echo ' :  ' . $total . '</h2><br>';
+echo ' :  ' . $total . '</h2>';
 
 ?>
 </div> <!-- /container -->
