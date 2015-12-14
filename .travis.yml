@@ -19,6 +19,7 @@ before_script:
   - echo Current dir is `pwd`
   - echo Home dir is `echo ~`
   - composer global require "squizlabs/php_codesniffer=*"
+  - export PATH=~/.composer/vendor/bin/ 
   - phpenv rehash
   - wget https://scrutinizer-ci.com/ocular.phar
 
