@@ -22,6 +22,9 @@ if (!isset($_SESSION['sess_user'])) {
     header('Location: index.php');
     exit;
 }
+
+$currentdate = getCalenderInfo('date');
+$currentweek = getCalenderInfo('week');
 ?>
 
 <!DOCTYPE html>
@@ -82,11 +85,8 @@ if ($sess_id == 2) {
 </ul></div></div></div>
 
 <div class="container">
-<h1>Bokningsschema för måndag xx/xx</h1><br>
-
-
 <?php
-
+echo '<h1>Bokningsschema för måndag ' . $currentdate . ' (w' . $currentweek .')</h1><br>';
 $result = $mysqli->query('SELECT * FROM users ORDER BY id ASC');
 $row    = $result->fetch_all(MYSQLI_ASSOC);
 $i      = 1;

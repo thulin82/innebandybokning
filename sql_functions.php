@@ -124,3 +124,21 @@ function getIsGuestsEnabled()
     $row    = $result->fetch_all(MYSQLI_ASSOC);
     return $row[0]['value'];
 }
+
+    /**
+    * GetCalenderInfo
+    *
+    * @return int Guests enabled or not
+    */
+function getCalenderInfo($calender_object)
+{
+    include 'connect.php';
+    $mysqli->set_charset('utf8');
+    $query  = sprintf(
+        'SELECT `%s` FROM `weekdata` WHERE `currentweek`=1',
+        $mysqli->real_escape_string($calender_object)
+    );
+    $result = $mysqli->query($query);
+    $row    = $result->fetch_all(MYSQLI_NUM);
+    return $row[0][0];
+}
