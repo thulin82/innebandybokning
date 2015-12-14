@@ -24,18 +24,17 @@ if (!isset($_SESSION['sess_user'])) {
     exit;
 }
 
-if(isset($_POST['0'])) {
-$mysqli->query('UPDATE users SET attend = 0');
+if (isset($_POST['0'])) {
+    $mysqli->query('UPDATE users SET attend = 0');
 }
 
-for ($i = 1; $i <= $nbr_of_users; $i++)
-{
-	if(isset($_POST["$i"])) {
-        $query  = sprintf(
-            'UPDATE users SET attend = IF(attend=1, 0, 1) WHERE id =%d',$i
-    );
-    $mysqli->query($query);
-	}
+for ($i = 1; $i <= $nbr_of_users; $i++) {
+    if (isset($_POST["$i"])) {
+        $query = sprintf(
+            'UPDATE users SET attend = IF(attend=1, 0, 1) WHERE id =%d', $i
+        );
+        $mysqli->query($query);
+    }
 }
 
 $currentdate         = getCalenderInfo('date'); // This week's date
