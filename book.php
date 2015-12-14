@@ -75,7 +75,7 @@ $currentweek = getCalenderInfo('week');
     <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Om...</a>
 </li>
 <?php
-$sess_id = $_SESSION['sess_id'];
+$sess_id     = $_SESSION['sess_id'];
 if ($sess_id == 2) {
     echo '<li><a href="admin.php">';
     echo '<span class="glyphicon glyphicon-lock" aria-hidden="true">';
@@ -86,7 +86,8 @@ if ($sess_id == 2) {
 
 <div class="container">
 <?php
-echo '<h1>Bokningsschema för måndag ' . $currentdate . ' (w' . $currentweek .')</h1><br>';
+echo '<h1>Bokningsschema för måndag ' . $currentdate . ' (w' . $currentweek .')';
+echo '</h1><br>';
 $result = $mysqli->query('SELECT * FROM users ORDER BY id ASC');
 $row    = $result->fetch_all(MYSQLI_ASSOC);
 $i      = 1;

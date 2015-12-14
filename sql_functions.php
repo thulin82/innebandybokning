@@ -128,6 +128,8 @@ function getIsGuestsEnabled()
     /**
     * GetCalenderInfo
     *
+    * @param string $calender_object String with Calender Object
+    *
     * @return int Guests enabled or not
     */
 function getCalenderInfo($calender_object)
