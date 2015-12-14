@@ -123,7 +123,7 @@ function getNbrOfGuests()
     include 'connect.php';
     $mysqli->set_charset('utf8');
     $result = $mysqli->query(
-        'SELECT SUM( guests ) AS Guests FROM users WHERE attend = 1'
+        'SELECT SUM( guests ) AS Guests FROM users'
     );
     $row    = $result->fetch_all(MYSQLI_ASSOC);
     return $row[0]['Guests'];
@@ -163,4 +163,20 @@ function getCalenderInfo($calender_object)
     $result = $mysqli->query($query);
     $row    = $result->fetch_all(MYSQLI_NUM);
     return $row[0][0];
+}
+
+    /**
+    * GetNbrOfUsers
+    *
+    * @return int Number of users
+    */
+function getNbrOfUsers()
+{
+    include 'connect.php';
+    $mysqli->set_charset('utf8');
+    $result = $mysqli->query(
+        'SELECT COUNT(*) AS nbr FROM users'
+    );
+    $row    = $result->fetch_all(MYSQLI_ASSOC);
+    return $row[0]['nbr'];
 }
