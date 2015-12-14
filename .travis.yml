@@ -18,11 +18,10 @@ before_script:
   - echo Start travis
   - echo Current dir is `pwd`
   - echo Home dir is `echo ~`
-  - git clone git://github.com/squizlabs/PHP_CodeSniffer.git
-  - cd PHP_CodeSniffer
-  - php scripts/phpcs -h
-  - php scripts/phpcbf -h
   - cd ..
+  - git clone git://github.com/squizlabs/PHP_CodeSniffer.git
+  - php PHP_CodeSniffer/scripts/phpcs -h
+  - php PHP_CodeSniffer/scripts/phpcbf -h
   - phpenv rehash
   - wget https://scrutinizer-ci.com/ocular.phar
 
