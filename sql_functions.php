@@ -41,8 +41,6 @@ function printTable($head1, $head2, $data)
 function showStatsForSeason($season)
 {
     include 'connect.php';
-    $mysqli->set_charset('utf8');
-
     $query  = sprintf(
         'SELECT `name`, `%s` FROM `stats` WHERE `%s`!=0 ORDER BY `%s` DESC',
         $mysqli->real_escape_string($season), $mysqli->real_escape_string($season),
@@ -50,7 +48,6 @@ function showStatsForSeason($season)
     );
     $result = $mysqli->query($query);
     $row    = $result->fetch_all(MYSQLI_NUM);
-
     printTable('Namn', 'Antal', $row);
 }
 
@@ -62,15 +59,12 @@ function showStatsForSeason($season)
 function showStatsTopTenTotal()
 {
     include 'connect.php';
-    $mysqli->set_charset('utf8');
-
     $result = $mysqli->query(
         'SELECT `name`, `aut2012`+`spring2013`+`aut2013`+`spring2014`+`aut2014`+
         `spring2015`+`aut2015` FROM `stats` ORDER BY `aut2012`+`spring2013`+
         `aut2013`+`spring2014`+`aut2014`+`spring2015`+`aut2015` DESC LIMIT 10'
     );
     $row    = $result->fetch_all(MYSQLI_NUM);
-
     printTable('Namn', 'Totalt', $row);
 }
 
@@ -82,14 +76,11 @@ function showStatsTopTenTotal()
 function showStatsTopTenSeasons()
 {
     include 'connect.php';
-    $mysqli->set_charset('utf8');
-
     $result = $mysqli->query(
         'SELECT `name`, `nbr_seasons` FROM `stats` ORDER BY `nbr_seasons`
         DESC LIMIT 10'
     );
     $row    = $result->fetch_all(MYSQLI_NUM);
-
     printTable('Namn', 'Antal S&auml;songer', $row);
 }
 
@@ -103,7 +94,6 @@ function showStatsTopTenSeasons()
 function getNbrOfAttends($status)
 {
     include 'connect.php';
-    $mysqli->set_charset('utf8');
     $query  = sprintf(
         'SELECT COUNT(`attend`) AS Attending FROM `users` WHERE `attend`=%d',
         $status
@@ -121,7 +111,6 @@ function getNbrOfAttends($status)
 function getNbrOfGuests()
 {
     include 'connect.php';
-    $mysqli->set_charset('utf8');
     $result = $mysqli->query(
         'SELECT SUM( guests ) AS Guests FROM users'
     );
@@ -137,7 +126,6 @@ function getNbrOfGuests()
 function getIsGuestsEnabled()
 {
     include 'connect.php';
-    $mysqli->set_charset('utf8');
     $result = $mysqli->query(
         'SELECT `value` FROM `variables` WHERE `name`="enable_guests"'
     );
@@ -155,7 +143,6 @@ function getIsGuestsEnabled()
 function getCalenderInfo($calender_object)
 {
     include 'connect.php';
-    $mysqli->set_charset('utf8');
     $query  = sprintf(
         'SELECT `%s` FROM `weekdata` WHERE `currentweek`=1',
         $mysqli->real_escape_string($calender_object)
@@ -173,7 +160,6 @@ function getCalenderInfo($calender_object)
 function getNbrOfUsers()
 {
     include 'connect.php';
-    $mysqli->set_charset('utf8');
     $result = $mysqli->query(
         'SELECT COUNT(*) AS nbr FROM users'
     );

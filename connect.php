@@ -16,6 +16,7 @@ $mysql_password = 'USER_PASSWORD';
 $mysql_database = 'DATABASE_NAME';
 
 $mysqli = new mysqli($mysql_server, $mysql_user, $mysql_password, $mysql_database);
+$mysqli->set_charset('utf8');
 
 if (mysqli_connect_errno()) {
     echo mysqli_connect_error();
