@@ -31,6 +31,7 @@ $nbr_of_not_answered = getNbrOfAttends('2'); //Nbr of not answered for this week
 $enable_guests       = getIsGuestsEnabled(); //Is guests enabled?
 $nbr_of_guests       = getNbrOfGuests(); //Nbr of guests for this week
 $total               = $nbr_of_guests + $nbr_of_attends; //Total nbr of attendees
+$sess_id             = $_SESSION['sess_id']; //Session-ID
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +82,6 @@ $total               = $nbr_of_guests + $nbr_of_attends; //Total nbr of attendee
     <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Om...</a>
 </li>
 <?php
-$sess_id     = $_SESSION['sess_id'];
 if ($sess_id == 2) {
     echo '<li><a href="admin.php">';
     echo '<span class="glyphicon glyphicon-lock" aria-hidden="true">';
@@ -125,9 +125,6 @@ foreach ($row as $key => $value) {
     $j++;
 }
 echo '</tbody></table>';
-?>
-
-<?php
 
 echo '<span class="label label-success">Kommer</span>';
 echo ' :  ' . $nbr_of_attends . '<br>';
@@ -138,7 +135,7 @@ echo ' :  ' . $nbr_of_not_attends . '<br>';
 echo '<span class="label label-warning">Ej Svarat</span>';
 echo ' :  ' . $nbr_of_not_answered . '<br>';
 
-echo '<span class="label label-success">G&auml;ster</span>';
+echo '<span class="label label-info">G&auml;ster</span>';
 echo ' :  ' . $nbr_of_guests . '<br>';
 
 echo '<h2><span class="label label-success">Totalt</span>';
