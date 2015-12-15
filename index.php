@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
     $_POST  = $clean->sanitize($_POST);
     $passwd = filter_var($_POST['passwd'], FILTER_SANITIZE_STRING);
     $user   = filter_var($_POST['user'], FILTER_SANITIZE_STRING);
-    $query  = sprintf("SELECT id FROM password WHERE password='%s'", $passwd);
+    $query  = sprintf("SELECT id, password_hash FROM password WHERE user='%s'", $user);
     $result = $mysqli->query($query);
  
     //User not found, return with "bad login"
@@ -31,12 +31,17 @@ if (isset($_POST['submit'])) {
         exit;
     }
  
-    // User found, set session and forward to book.php
-    $row                   = $result->fetch_array();
-    $_SESSION['sess_id']   = $row['id'];
-    $_SESSION['sess_user'] = $user;
-    header('Location: book.php');
-    exit;
+    // User found, password check
+    $row = $result->fetch_array();
+    if (password_verify($passwd, $row['password_hash'])) {
+        $_SESSION['sess_id']   = $row['id'];
+        $_SESSION['sess_user'] = $user;
+        header('Location: book.php');
+        exit;
+    } else {
+        header('Location: index.php?badlogin=');
+        exit;
+    }
 }
 
 // Logout
