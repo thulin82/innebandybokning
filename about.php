@@ -87,7 +87,8 @@ if ($sess_id == 2) {
 <a href="http://getbootstrap.com/">bootstrap.</a> (v3.3.6)</p>
 <p>All information sparas i en MySql-databas och serverspråket är php</p>
 <p>För information om sidan kontakta admin.</p>
-<p>Källkoden finns på <a href="https://github.com/thulin82/innebandybokning">GitHub</a></p>
+<p>Källkoden finns på 
+<a href="https://github.com/thulin82/innebandybokning">GitHub</a></p>
 <p>&copy; Markus Thulin 2012-<?php echo date('Y'); ?></p>
 
 </div> <!-- /container -->
