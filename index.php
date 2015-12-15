@@ -22,7 +22,9 @@ if (isset($_POST['submit'])) {
     $_POST  = $clean->sanitize($_POST);
     $passwd = filter_var($_POST['passwd'], FILTER_SANITIZE_STRING);
     $user   = filter_var($_POST['user'], FILTER_SANITIZE_STRING);
-    $query  = sprintf("SELECT id, password_hash FROM password WHERE user='%s'", $user);
+    $query  = sprintf(
+        'SELECT id, password_hash FROM password WHERE user="%s"', $user
+    );
     $result = $mysqli->query($query);
  
     //User not found, return with "bad login"
