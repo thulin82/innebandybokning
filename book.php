@@ -133,14 +133,17 @@ foreach ($row as $key => $value) {
     } else {
         echo '<span class="label label-danger">Kommer Ej</span>';
     }
-    echo '</td><td><form name="form" method="post"><input type="submit"';
+    echo '</td><td><form name="form" method="post">';
+    echo '<input class="btn btn-default btn-sm" type="submit"';
     echo 'name="' . $i . '" value="&Auml;ndra" /></form></td>';
     if (($enable_guests == 1) && ($nbr_of_attends < 8 )) {
-        echo '<td><form name="form" method="post"><input type="text" ';
+        echo '<td><form name="form" class="input-sm" ';
+        echo 'method="post"><input type="text" ';
         echo 'class="input-span1" name="' . $j . '" value="';
         echo $value['guests'] . '"/></form></td>';
     } else {
-        echo '<td><form name="form" method="post"><input type="text" ';
+        echo '<td><form name="form" class="input-sm" ';
+        echo 'method="post"><input type="text" ';
         echo 'class="input-span1" name="' . $j . '" value="';
         echo $value['guests'] . '" disabled/></form></td>';
     }
