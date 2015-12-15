@@ -26,7 +26,12 @@ function printTable($head1, $head2, $data)
     echo '<thead><tr><th>' . $head1 . '</th><th>' . $head2;
     echo '</th></tr></thead><tbody>';
     foreach ($data as $key => $value) {
-        echo '<tr><td>' . $value[0] . '</td><td>' . $value[1] . '</td></tr>';
+        echo '<tr><td>' . $value[0];
+        echo '</td><td>' . $value[1];
+        if ($value[2] == 1) {
+            echo ' <span class="label label-success">Leader</span>';
+            echo '</td></tr>';
+        }
     }
     echo '</tbody></table>';
 }
@@ -61,8 +66,9 @@ function showStatsTopTenTotal()
     include 'connect.php';
     $result = $mysqli->query(
         'SELECT `name`, `aut2012`+`spring2013`+`aut2013`+`spring2014`+`aut2014`+
-        `spring2015`+`aut2015` FROM `stats` ORDER BY `aut2012`+`spring2013`+
-        `aut2013`+`spring2014`+`aut2014`+`spring2015`+`aut2015` DESC LIMIT 10'
+        `spring2015`+`aut2015`, `total_leader` FROM `stats` ORDER BY `aut2012`+
+        `spring2013`+`aut2013`+`spring2014`+`aut2014`+`spring2015`+`aut2015`
+        DESC LIMIT 10'
     );
     $row    = $result->fetch_all(MYSQLI_NUM);
     printTable('Namn', 'Totalt', $row);
@@ -77,8 +83,8 @@ function showStatsTopTenSeasons()
 {
     include 'connect.php';
     $result = $mysqli->query(
-        'SELECT `name`, `nbr_seasons` FROM `stats` ORDER BY `nbr_seasons`
-        DESC LIMIT 10'
+        'SELECT `name`, `nbr_seasons`, `season_leader` FROM `stats`
+        ORDER BY `nbr_seasons` DESC LIMIT 10'
     );
     $row    = $result->fetch_all(MYSQLI_NUM);
     printTable('Namn', 'Antal S&auml;songer', $row);
