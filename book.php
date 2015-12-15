@@ -93,7 +93,7 @@ $sess_id             = $_SESSION['sess_id']; //Session-ID
 </div>
 <div class="collapse navbar-collapse">
 <ul class="nav navbar-nav">
-<li><a href="index.php">
+<li><a href="index.php?logout=">
     <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logga Ut</a>
 </li>
 <li class="active"><a href="book.php">

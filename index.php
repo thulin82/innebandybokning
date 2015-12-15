@@ -96,9 +96,15 @@ if (!isset($_SESSION['sess_user'])) {
 } else {
 ?>
 <form class="form-signin">
-<input type="button" value="Logga ut" class="btn btn-lg btn-primary btn-block"
+<input type="button" value="Logga ut"
+       class="btn btn-lg btn-primary btn-block btn-danger"
        name="logout" onclick="location.href='index.php?logout='">
 </form>
+<br>
+<div class="back-to-book-button">
+<a href="book.php" class="btn btn-lg btn-primary btn-block"
+   role="button">Tillbaka till Bokning</a>
+</div>
 <?php
 }  
 ?> 

@@ -60,7 +60,7 @@ if (!isset($_SESSION['sess_user'])) {
 </div>
 <div class="collapse navbar-collapse">
 <ul class="nav navbar-nav">
-<li><a href="index.php">
+<li><a href="index.php?logout=">
     <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logga Ut</a>
 </li>
 <li><a href="book.php">
