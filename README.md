@@ -18,7 +18,21 @@
 CREATE TABLE `password` (
   `id` int,
   `user` varchar,
-  `password` varchar 
+  `password_hash` varchar
+);
+CREATE TABLE `stats` (
+  `id` int,
+  `name` varchar,
+  `total_leader` int,
+  `season_leader` int,
+  `aut2012` int,
+  `spring2013` int,
+  `aut2013` int,
+  `spring2014` int,
+  `aut2014` int,
+  `spring2015` int,
+  `aut2015` int,
+  `nbr_seasons` int
 );
 CREATE TABLE `users` (
   `id` int,
@@ -36,22 +50,8 @@ CREATE TABLE `variables` (
 CREATE TABLE `weekdata` (
   `id` int,
   `week` int,
-  `attended_a` int,
-  `attended_g` int,
   `currentweek` int,
   `date` varchar
-);
-CREATE TABLE `stats` (
-  `id` int,
-  `name` varchar,
-  `aut2012` int,
-  `spring2013` int,
-  `aut2013` int,
-  `spring2014` int,
-  `aut2014` int,
-  `spring2015` int,
-  `aut2015` int,
-  `nbr_seasons` int
 );
 ```
 ### User Data
@@ -61,6 +61,13 @@ $mysql_server = "SERVER_NAME";
 $mysql_user = "USER_NAME";
 $mysql_password = "USER_PASSWORD";
 $mysql_database = "DATABASE_NAME";
+```
+Replace these varibales in _maila.php with your mail-info
+```php
+$gmail_account  = 'GMAIL_ACCOUNT';
+$gmail_password = 'GMAIL_PASSWORD';
+$gmail_title    = 'GMAIL_TITLE';
+$gmail_body     = 'GMAIL_BODY';
 ```
 
 © Markus Thulin 2015-
