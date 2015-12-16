@@ -22,7 +22,7 @@ $gmail_body     = 'GMAIL_BODY';
 $enable_guests  = false;
 
 //ENABLE GUESTS
-if ($enable_guests == true) {
+if ($enable_guests === true) {
     $mysqli->query('UPDATE variables SET value = 1 WHERE name="enable_guests"');
 }
 
