@@ -18,9 +18,9 @@ require 'connect.php';
 $result = $mysqli->query('SELECT name FROM users WHERE attend="1" ORDER BY id ASC');
 $row    = $result->fetch_all(MYSQLI_ASSOC);
 foreach ($row as $key => $value) {
-    $query  = sprintf(
+    $query = sprintf(
         'UPDATE users SET nbr_of_attends = nbr_of_attends + 1
-        WHERE name = "%s"',$value['name']
+        WHERE name = "%s"', $value['name']
     );
     $mysqli->query($query);
 }
@@ -36,5 +36,5 @@ $row         = $result->fetch_all(MYSQLI_ASSOC);
 $currentweek = $row[0]['week'];
 $nextweek    = $currentweek + 1;
 $mysqli->query('UPDATE weekdata SET currentweek = 0');
-$query  = sprintf('UPDATE weekdata SET currentweek = 1 WHERE week=%s',$nextweek);
+$query = sprintf('UPDATE weekdata SET currentweek = 1 WHERE week=%s', $nextweek);
 $mysqli->query($query);
