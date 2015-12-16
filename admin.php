@@ -28,9 +28,9 @@ if (isset($_POST['reset'])) {
 //Toggle enable_guests
 if (isset($_POST['guests'])) {
     $mysqli->query(
-                'UPDATE variables SET value = IF(value=1, 0, 1)
-                WHERE name="enable_guests"'
-            );
+        'UPDATE variables SET value = IF(value=1, 0, 1)
+        WHERE name="enable_guests"'
+    );
 }
 ?>
 
@@ -116,7 +116,7 @@ foreach ($row as $key => $value) {
 echo '<h3>Gäster:</h3>';
 $result = $mysqli->query('SELECT value FROM variables WHERE name="enable_guests"');
 $row    = $result->fetch_all(MYSQLI_ASSOC);
-if (($row[0]['value']) == 0 ){
+if (($row[0]['value']) == 0 ) {
     echo 'Ej tillgängligt: <span class="glyphicon glyphicon-remove" ';
     echo 'aria-hidden="true"></span>';
 } else {
