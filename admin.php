@@ -21,6 +21,17 @@ if ((!isset($_SESSION['sess_user'])) || ($_SESSION['sess_id'] == 1)) {
     header('Location: index.php');
     exit;
 }
+// Reset attendees
+if (isset($_POST['reset'])) {
+    $mysqli->query('UPDATE users SET attend = 2');
+}
+//Toggle enable_guests
+if (isset($_POST['guests'])) {
+    $mysqli->query(
+                'UPDATE variables SET value = IF(value=1, 0, 1)
+                WHERE name="enable_guests"'
+            );
+}
 ?>
 
 <!DOCTYPE html>
@@ -95,12 +106,31 @@ if ($sess_id == 2) {
 <?php
 //Get name and mail for those who have attending==2 (no respone yet)
 $result = $mysqli->query(
-    "SELECT DISTINCT name, mail
-    FROM users WHERE attend='2' ORDER BY id ASC"
+    'SELECT DISTINCT name, mail
+    FROM users WHERE attend="2" ORDER BY id ASC'
 );
 $row    = $result->fetch_all(MYSQLI_ASSOC);
 foreach ($row as $key => $value) {
     echo $value['name'] . ' (' . $value['mail'] . ')' . '<br>';
+}
+echo '<h3>Gäster:</h3>';
+$result = $mysqli->query('SELECT value FROM variables WHERE name="enable_guests"');
+$row    = $result->fetch_all(MYSQLI_ASSOC);
+if (($row[0]['value']) == 0 ){
+    echo 'Ej tillgängligt: <span class="glyphicon glyphicon-remove" ';
+    echo 'aria-hidden="true"></span>';
+} else {
+    echo 'Tillgängligt: <span class="glyphicon glyphicon-ok" ';
+    echo 'aria-hidden="true"></span>';
+}
+echo '<h3>Admin-verktyg:</h3>';
+if ($sess_id == 2) {
+    echo '<form name="form" method="post">';
+    echo '<input class="btn btn-danger" type="submit"';
+    echo 'name="reset" value="Reset Attendees" /></form><br>';
+    echo '<form name="form" method="post">';
+    echo '<input class="btn btn-warning" type="submit"';
+    echo 'name="guests" value="Toggle Guests" /></form>';
 }
 ?>
 

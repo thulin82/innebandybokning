@@ -23,10 +23,6 @@ if (!isset($_SESSION['sess_user'])) {
     header('Location: index.php');
     exit;
 }
-// If 0, reset attendees
-if (isset($_POST['0'])) {
-    $mysqli->query('UPDATE users SET attend = 0');
-}
 // If 1-15, change attending status
 for ($i = 1; $i <= $nbr_of_users; $i++) {
     if (isset($_POST[$i])) {
