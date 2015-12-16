@@ -15,16 +15,18 @@ session_start();
 require 'connect.php';
 require 'PHPMailer-5.2.10/PHPMailerAutoload.php';
 
-//ENABLE GUESTS
-//$mysqli->query('UPDATE variables SET value = 1 WHERE name="enable_guests"');
-
 $gmail_account  = 'GMAIL_ACCOUNT';
 $gmail_password = 'GMAIL_PASSWORD';
 $gmail_title    = 'GMAIL_TITLE';
 $gmail_body     = 'GMAIL_BODY';
+$enable_guests  = false;
+
+//ENABLE GUESTS
+if ($enable_guests == true) {
+    $mysqli->query('UPDATE variables SET value = 1 WHERE name="enable_guests"');
+}
 
 $mail = new PHPMailer();
-//$mail->SMTPDebug  = 2;
 $mail->IsSMTP();                              // Telling the class to use SMTP
 $mail->Debugoutput = 'html';                  // Ask for HTML-friendly debug output
 $mail->SMTPAuth    = true;                    // Enable SMTP authentication
@@ -45,7 +47,7 @@ foreach ($row as $key => $value) {
 }
 
 if (!$mail->Send()) {
-  echo 'Mailer Error: ' . $mail->ErrorInfo;
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-  echo 'Message sent!';
+    echo 'Message sent!';
 }
