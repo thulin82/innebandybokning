@@ -56,7 +56,7 @@ if (!isset($_SESSION['sess_user'])) {
 <span class="icon-bar"></span>
 </button>
 
-<a class="navbar-brand" href="#">Innebandybokning</a>
+<a class="navbar-brand">Innebandybokning</a>
 </div>
 <div class="collapse navbar-collapse">
 <ul class="nav navbar-nav">

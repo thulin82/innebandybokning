@@ -89,7 +89,7 @@ $sess_id             = $_SESSION['sess_id']; //Session-ID
 <span class="icon-bar"></span>
 </button>
 
-<a class="navbar-brand" href="#">Innebandybokning</a>
+<a class="navbar-brand">Innebandybokning</a>
 </div>
 <div class="collapse navbar-collapse">
 <ul class="nav navbar-nav">
