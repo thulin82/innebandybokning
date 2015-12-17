@@ -15,7 +15,7 @@ session_start();
 require 'connect.php';
 require 'src/Functions.php';
 require 'sql_functions.php';
-$mysqli->set_charset('utf8');
+
 $nbr_of_users = getNbrOfUsers(); //Total users in database
 
 // I session set = user logged in

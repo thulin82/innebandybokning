@@ -14,7 +14,6 @@ session_start();
  
 require 'connect.php';
 require 'src/Functions.php';
-$mysqli->set_charset('utf8');
 
 //Login
 if (isset($_POST['submit'])) {
