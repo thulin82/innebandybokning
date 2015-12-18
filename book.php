@@ -36,8 +36,8 @@ for ($i = 1; $i <= $nbr_of_users; $i++) {
 for ($j = 101; $j <= (101 + $nbr_of_users); $j++) {
     if (isset($_POST[$j])) {
         $clean  = new Functions();
-        $t = $clean->singleInt($_POST[$j]);
-        $query = sprintf(
+        $t      = $clean->singleInt($_POST[$j]);
+        $query  = sprintf(
             'UPDATE users SET guests = %d WHERE id=%d', $t, ($j-100)
         );
         $mysqli->query($query);
