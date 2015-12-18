@@ -97,38 +97,38 @@ if ($sess_id == 2) {
 <?php
 $sess_id = $_SESSION['sess_id'];
 if ($sess_id == 2) {
-echo 'Du är inloggad som admin<br>';
-echo '<div class="row">';
-echo '<div class="col-md-4">';
-echo '<h3>Ej svarat denna vecka:</h3>';
-$result = $mysqli->query(
-    'SELECT DISTINCT name, mail
-    FROM users WHERE attend="2" ORDER BY id ASC'
-);
-$row    = $result->fetch_all(MYSQLI_ASSOC);
-foreach ($row as $key => $value) {
-    echo $value['name'] . ' (' . $value['mail'] . ')' . '<br>';
-}
-echo '</div><div class="col-md-4">';
-echo '<h3>Gäster:</h3>';
-$result = $mysqli->query('SELECT value FROM variables WHERE name="enable_guests"');
-$row    = $result->fetch_all(MYSQLI_ASSOC);
-if (($row[0]['value']) == 0 ) {
-    echo 'Ej tillgängligt: <span class="glyphicon glyphicon-remove" ';
-    echo 'aria-hidden="true"></span>';
-} else {
-    echo 'Tillgängligt: <span class="glyphicon glyphicon-ok" ';
-    echo 'aria-hidden="true"></span>';
-}
-echo '</div><div class="col-md-4">';
-echo '<h3>Admin-verktyg:</h3>';
-echo '<form name="form" method="post">';
-echo '<input class="btn btn-danger" type="submit"';
-echo 'name="reset" value="Reset Attendees" /></form><br>';
-echo '<form name="form" method="post">';
-echo '<input class="btn btn-warning" type="submit"';
-echo 'name="guests" value="Toggle Guests" /></form>';
-echo '</div></div>';
+    echo 'Du är inloggad som admin<br>';
+    echo '<div class="row">';
+    echo '<div class="col-md-4">';
+    echo '<h3>Ej svarat denna vecka:</h3>';
+    $result = $mysqli->query(
+        'SELECT DISTINCT name, mail
+        FROM users WHERE attend="2" ORDER BY id ASC'
+    );
+    $row    = $result->fetch_all(MYSQLI_ASSOC);
+    foreach ($row as $key => $value) {
+        echo $value['name'] . ' (' . $value['mail'] . ')' . '<br>';
+    }
+    echo '</div><div class="col-md-4">';
+    echo '<h3>Gäster:</h3>';
+    $result = $mysqli->query('SELECT value FROM variables WHERE name="enable_guests"');
+    $row    = $result->fetch_all(MYSQLI_ASSOC);
+    if (($row[0]['value']) == 0 ) {
+        echo 'Ej tillgängligt: <span class="glyphicon glyphicon-remove" ';
+        echo 'aria-hidden="true"></span>';
+    } else {
+        echo 'Tillgängligt: <span class="glyphicon glyphicon-ok" ';
+        echo 'aria-hidden="true"></span>';
+    }
+    echo '</div><div class="col-md-4">';
+    echo '<h3>Admin-verktyg:</h3>';
+    echo '<form name="form" method="post">';
+    echo '<input class="btn btn-danger" type="submit"';
+    echo 'name="reset" value="Reset Attendees" /></form><br>';
+    echo '<form name="form" method="post">';
+    echo '<input class="btn btn-warning" type="submit"';
+    echo 'name="guests" value="Toggle Guests" /></form>';
+    echo '</div></div>';
 }
 ?>
 
