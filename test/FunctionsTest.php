@@ -81,4 +81,28 @@ class FunctionsTest extends \PHPUnit_Framework_TestCase
         $res     = $this->_test->sanitize($string);
         $this->assertEquals($exp, $res, "sanitize fail");
     }
+    
+    /**
+     * Test Single Int (Allowed int) in Functions
+     *
+     * @return void
+     */
+    public function testSingleIntAllowedInt() 
+    {
+        $test = "3";
+        $res = $this->_test->singleInt($test);
+        $this->assertEquals($test, $res);
+    }
+    
+    /**
+     * Test Single Int (Disallowed int) in Functions
+     *
+     * @return void
+     */
+    public function testSingleIntDisAllowedInt() 
+    {
+        $test = "33";
+        $res = $this->_test->singleInt($test);
+        $this->assertEquals(0, $res);
+    }
 }
