@@ -111,7 +111,9 @@ if ($sess_id == 2) {
     }
     echo '</div><div class="col-md-4">';
     echo '<h3>Gäster:</h3>';
-    $result = $mysqli->query('SELECT value FROM variables WHERE name="enable_guests"');
+    $result = $mysqli->query(
+        'SELECT value FROM variables WHERE name="enable_guests"'
+    );
     $row    = $result->fetch_all(MYSQLI_ASSOC);
     if (($row[0]['value']) == 0 ) {
         echo 'Ej tillgängligt: <span class="glyphicon glyphicon-remove" ';
