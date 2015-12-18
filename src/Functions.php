@@ -92,14 +92,14 @@ class Functions
     * @license  http://www.opensource.org/licenses/mit-license.php MIT
     * @link     https://github.com/thulin82/innebandybokning
     *
-    * @return string|integer $output
+    * @return string $output
     */
     public function singleInt($input)
     {
         if (preg_match('/^\d{1}$/', $input)) {
             return $input;
         } else {
-            return 0;
+            return "0";
         }
     }
 }

@@ -103,6 +103,18 @@ class FunctionsTest extends \PHPUnit_Framework_TestCase
     {
         $test = "33";
         $res = $this->_test->singleInt($test);
-        $this->assertEquals(0, $res);
+        $this->assertEquals("0", $res);
+    }
+    
+    /**
+     * Test Single Int (Disallowed string) in Functions
+     *
+     * @return void
+     */
+    public function testSingleIntDisAllowedString() 
+    {
+        $test = "disallowed_string";
+        $res = $this->_test->singleInt($test);
+        $this->assertEquals("0", $res);
     }
 }
