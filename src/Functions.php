@@ -78,4 +78,28 @@ class Functions
         }
         return $output;
     }
+
+    /**
+    * Single Int
+    *
+    * PHP version 5
+    *
+    * @param string $input The input you want to verify
+    *
+    * @category Functions
+    * @package  Innebandybokning
+    * @author   Markus Thulin <macky_b@hotmail.com>
+    * @license  http://www.opensource.org/licenses/mit-license.php MIT
+    * @link     https://github.com/thulin82/innebandybokning
+    *
+    * @return string $output
+    */
+    public function singleInt($input)
+    {
+        if (preg_match('/^\d{1}$/', $input)) {
+            return $input;
+        } else {
+            return 0;
+        }
+    }
 }
