@@ -84,50 +84,35 @@ if ($sess_id == 2) {
 
 <h1>Statistik</h1><br>
 <?php
-echo '<div class="row">';
-echo '<div class="col-md-6">';
+echo '<div class="row"><div class="col-md-6">';
 echo '<h3>Topp-10 Medverkan (totalt)</h3>';
-//Get name and nbr of attends for those on the top ten list
 showStatsTopTenTotal();
 echo '</div><div class="col-md-6">';
 echo '<h3>Topp-10 Medverkan (antal säsonger)</h3>';
-//Get name and nbr of seasons for those on the top ten list
 showStatsTopTenSeasons();
-echo '</div></div>';
-echo '<div class="row">';
-echo '<div class="col-md-3">';
+echo '</div></div><div class="row"><div class="col-md-3">';
 echo '<h3>Hösten 2012</h3>';
-//Get name and attends for all involved autumn 2012
 showStatsForSeason('aut2012');
 echo '</div><div class="col-md-3">';
 echo '<h3>Våren 2013</h3>';
-//Get name and attends for all involved spring 2013
 showStatsForSeason('spring2013');
 echo '</div><div class="col-md-3">';
 echo '<h3>Hösten 2013</h3>';
-//Get name and attends for all involved autumn 2013
 showStatsForSeason('aut2013');
 echo '</div><div class="col-md-3">';
 echo '<h3>Våren 2014</h3>';
-//Get name and attends for all involved spring 2014
 showStatsForSeason('spring2014');
-echo '</div></div>';
-echo '<div class="row">';
-echo '<div class="col-md-3">';
+echo '</div></div><div class="row"><div class="col-md-3">';
 echo '<h3>Hösten 2014</h3>';
-//Get name and attends for all involved autumn 2014
 showStatsForSeason('aut2014');
 echo '</div><div class="col-md-3">';
 echo '<h3>Våren 2015</h3>';
-//Get name and attends for all involved spring 2015
 showStatsForSeason('spring2015');
 echo '</div><div class="col-md-3">';
 echo '<h3>Hösten 2015</h3>';
-//Get name and attends for all involved autumn 2015
 showStatsForSeason('aut2015');
 echo '</div><div class="col-md-3">';
 echo '<h3>Våren 2016</h3>';
-//Get name and attends for all involved spring 2016
 //showStatsForSeason('spring2016');
 echo '</div></div>';
 ?>
