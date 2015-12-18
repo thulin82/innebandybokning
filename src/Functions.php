@@ -99,7 +99,7 @@ class Functions
         if (preg_match('/^\d{1}$/', $input)) {
             return $input;
         } else {
-            return "0";
+            return '0';
         }
     }
 }

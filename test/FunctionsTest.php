@@ -89,7 +89,7 @@ class FunctionsTest extends \PHPUnit_Framework_TestCase
      */
     public function testSingleIntAllowedInt() 
     {
-        $test = "3";
+        $test = '3';
         $res = $this->_test->singleInt($test);
         $this->assertEquals($test, $res);
     }
@@ -101,9 +101,9 @@ class FunctionsTest extends \PHPUnit_Framework_TestCase
      */
     public function testSingleIntDisAllowedInt() 
     {
-        $test = "33";
+        $test = '33';
         $res = $this->_test->singleInt($test);
-        $this->assertEquals("0", $res);
+        $this->assertEquals('0', $res);
     }
     
     /**
@@ -113,8 +113,8 @@ class FunctionsTest extends \PHPUnit_Framework_TestCase
      */
     public function testSingleIntDisAllowedString() 
     {
-        $test = "disallowed_string";
+        $test = 'disallowed_string';
         $res = $this->_test->singleInt($test);
-        $this->assertEquals("0", $res);
+        $this->assertEquals('0', $res);
     }
 }
