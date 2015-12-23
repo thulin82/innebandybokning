@@ -168,5 +168,6 @@ echo ' :  ' . $total . '</h2>';
 </script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+<script src="custom_js.js"></script>
 </body>
 </html>
