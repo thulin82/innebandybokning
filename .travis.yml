@@ -22,7 +22,7 @@ before_script:
 
 script:
   - php PHP_CodeSniffer/scripts/phpcs -i
-  - php PHP_CodeSniffer/scripts/phpcs --standard=PEAR /home/travis/build/thulin82/innebandybokning
+  - php PHP_CodeSniffer/scripts/phpcs --standard=PEAR /home/travis/build/thulin82/innebandybokning --ignore='/home/travis/build/thulin82/innebandybokning/custom_js.js'
   - cd innebandybokning
   - phpunit
   
