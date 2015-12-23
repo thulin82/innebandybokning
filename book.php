@@ -115,6 +115,9 @@ if ($sess_id == 2) {
 <?php
 echo '<h1>Bokningsschema för måndag ' . $currentdate . ' (w' . $currentweek .')';
 echo '</h1><br>';
+echo'<div class="alert alert-warning" role="alert">';
+echo '<strong>Info!</strong> Hela sidan är ombyggd från grunden, ';
+echo 'både front- och backend. Om den uppför sig konstigt, hör av er!</div>';
 $result = $mysqli->query('SELECT * FROM users ORDER BY id ASC');
 $row    = $result->fetch_all(MYSQLI_ASSOC);
 $i      = 1;
