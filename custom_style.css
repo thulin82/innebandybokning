@@ -3,7 +3,9 @@ body {
 }
 .input-span1 {
   width: 50px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
 .disabled {
-  background-color: red;
+  background-color: #c9302c;
 }
