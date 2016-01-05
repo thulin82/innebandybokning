@@ -43,6 +43,27 @@ for ($j = 101; $j <= (101 + $nbr_of_users); $j++) {
         $mysqli->query($query);
     }
 }
+// If 1001-1015, change coop status
+for ($k = 1001; $k <= (1001 + $nbr_of_users); $k++) {
+    if (isset($_POST[$k])) {
+        if ($_POST[$k] == 'Kör Själv') {
+        $query = sprintf(
+            'UPDATE users SET coop = 0 WHERE id =%d', ($k-1000)
+        );
+        $mysqli->query($query);
+        } else if ($_POST[$k] == 'Vill Åka ') {
+        $query = sprintf(
+            'UPDATE users SET coop = 1 WHERE id =%d', ($k-1000)
+        );
+        $mysqli->query($query);
+        } else {
+        $query = sprintf(
+            'UPDATE users SET coop = 2 WHERE id =%d', ($k-1000)
+        );
+        $mysqli->query($query);
+        }
+    }
+}
 
 $currentdate         = getCalenderInfo('date'); // This week's date
 $currentweek         = getCalenderInfo('week'); //This week's week nbr
@@ -122,8 +143,10 @@ $result = $mysqli->query('SELECT * FROM users ORDER BY id ASC');
 $row    = $result->fetch_all(MYSQLI_ASSOC);
 $i      = 1;
 $j      = 101;
+$k      = 1001;
 echo '<table class="table table-striped"><thead><tr><th>ID</th><th>Namn</th><th>';
-echo 'Kommer?</th><th>&Auml;ndra</th><th>G&auml;ster</th></tr></thead><tbody>';
+echo 'Kommer?</th><th>&Auml;ndra</th><th>G&auml;ster</th>';
+echo '<th>Sam&aring;kning</th></tr></thead><tbody>';
 foreach ($row as $key => $value) {
     echo '<tr><td>' . $value['id'] . '</td><td>' . $value['name'] . '</td><td>';
     if ($value['attend'] == 1) {
@@ -147,9 +170,23 @@ foreach ($row as $key => $value) {
         echo 'class="input-span1" name="' . $j . '" value="';
         echo $value['guests'] . '" disabled/></form></td>';
     }
+    if ($value['coop'] == 1) {
+        echo '<td><form name="form" method="post">';
+        echo '<input class="btn btn-success btn-sm" type="submit"';
+        echo 'name="' . $k . '" value="Kör Andra" /></form></td>';
+    } else if ($value['coop'] == 2) {
+        echo '<td><form name="form" method="post">';
+        echo '<input class="btn btn-primary btn-sm" type="submit"';
+        echo 'name="' . $k . '" value="Kör Själv" /></form></td>';
+    } else {
+        echo '<td><form name="form" method="post">';
+        echo '<input class="btn btn-info btn-sm" type="submit"';
+        echo 'name="' . $k . '" value="Vill Åka " /></form></td>';
+    }
     echo '</tr>';
     $i++;
     $j++;
+    $k++;
 }
 echo '</tbody></table>';
 echo '<span class="label label-success">Kommer</span>';

@@ -31,6 +31,10 @@ if (isset($_POST['guests'])) {
         WHERE name="enable_guests"'
     );
 }
+// Reset coop
+if (isset($_POST['coop'])) {
+    $mysqli->query('UPDATE users SET coop = 2');
+}
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +133,10 @@ if ($sess_id == 2) {
     echo 'name="reset" value="Reset Attendees" /></form><br>';
     echo '<form name="form" method="post">';
     echo '<input class="btn btn-warning" type="submit"';
-    echo 'name="guests" value="Toggle Guests" /></form>';
+    echo 'name="guests" value="Toggle Guests" /></form><br>';
+    echo '<form name="form" method="post">';
+    echo '<input class="btn btn-info" type="submit"';
+    echo 'name="coop" value="Reset Coop" /></form>';
     echo '</div></div>';
 }
 ?>

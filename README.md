@@ -32,6 +32,7 @@ CREATE TABLE `stats` (
   `aut2014` int,
   `spring2015` int,
   `aut2015` int,
+  `spring2016` int,
   `nbr_seasons` int
 );
 CREATE TABLE `users` (
@@ -40,6 +41,7 @@ CREATE TABLE `users` (
   `mail` varchar,
   `attend` int,
   `guests` int,
+  `coop` int,
   `nbr_of_attends` int
 );
 CREATE TABLE `variables` (
