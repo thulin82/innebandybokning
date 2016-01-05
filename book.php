@@ -47,20 +47,20 @@ for ($j = 101; $j <= (101 + $nbr_of_users); $j++) {
 for ($k = 1001; $k <= (1001 + $nbr_of_users); $k++) {
     if (isset($_POST[$k])) {
         if ($_POST[$k] == 'Kör Själv') {
-        $query = sprintf(
-            'UPDATE users SET coop = 0 WHERE id =%d', ($k-1000)
-        );
-        $mysqli->query($query);
+            $query = sprintf(
+                'UPDATE users SET coop = 0 WHERE id =%d', ($k-1000)
+            );
+            $mysqli->query($query);
         } else if ($_POST[$k] == 'Vill Åka ') {
-        $query = sprintf(
-            'UPDATE users SET coop = 1 WHERE id =%d', ($k-1000)
-        );
-        $mysqli->query($query);
+            $query = sprintf(
+                'UPDATE users SET coop = 1 WHERE id =%d', ($k-1000)
+            );
+            $mysqli->query($query);
         } else {
-        $query = sprintf(
-            'UPDATE users SET coop = 2 WHERE id =%d', ($k-1000)
-        );
-        $mysqli->query($query);
+            $query = sprintf(
+                'UPDATE users SET coop = 2 WHERE id =%d', ($k-1000)
+            );
+            $mysqli->query($query);
         }
     }
 }
