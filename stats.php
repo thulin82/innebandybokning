@@ -113,7 +113,7 @@ echo '<h3>Hösten 2015</h3>';
 showStatsForSeason('aut2015');
 echo '</div><div class="col-md-3">';
 echo '<h3>Våren 2016</h3>';
-//showStatsForSeason('spring2016');
+showStatsForSeason('spring2016');
 echo '</div></div>';
 ?>
 </div> <!-- /container -->

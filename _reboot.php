@@ -27,7 +27,8 @@ foreach ($row as $key => $value) {
 
 // RESET ATTENDS, RESET GUESTS and DISABLE GUESTS
 $mysqli->query('UPDATE users SET attend = 2'); //2 = Not answered
-$mysqli->query('UPDATE users SET guests = 0');
+$mysqli->query('UPDATE users SET guests = 0'); //0 = No guests
+$mysqli->query('UPDATE users SET coop = 2');   //2 = Driving
 $mysqli->query('UPDATE variables SET value = 0 WHERE name="enable_guests"');
 
 // STEP TO NEXT WEEK
