@@ -66,8 +66,8 @@ function showStatsTopTenTotal()
     include 'connect.php';
     $result = $mysqli->query(
         'SELECT `name`, `aut2012`+`spring2013`+`aut2013`+`spring2014`+`aut2014`+
-        `spring2015`+`aut2015`, `total_leader` FROM `stats` ORDER BY `aut2012`+
-        `spring2013`+`aut2013`+`spring2014`+`aut2014`+`spring2015`+`aut2015`
+        `spring2015`+`aut2015`+`spring2016`, `total_leader` FROM `stats` ORDER BY `aut2012`+
+        `spring2013`+`aut2013`+`spring2014`+`aut2014`+`spring2015`+`aut2015`+`spring2016`
         DESC LIMIT 10'
     );
     $row    = $result->fetch_all(MYSQLI_NUM);
