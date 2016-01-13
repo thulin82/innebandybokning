@@ -28,6 +28,7 @@ if ($enable_guests === true) {
 
 $mail = new PHPMailer();
 $mail->IsSMTP();                              // Telling the class to use SMTP
+$mail->CharSet     = "UTF-8";                 // Use UTF-8
 $mail->Debugoutput = 'html';                  // Ask for HTML-friendly debug output
 $mail->SMTPAuth    = true;                    // Enable SMTP authentication
 $mail->SMTPSecure  = 'tls';                   // Sets the prefix to the servier
