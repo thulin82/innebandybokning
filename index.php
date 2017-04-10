@@ -87,13 +87,17 @@ if (!isset($_SESSION['sess_user'])) {
 ?>
 
 <form class="form-signin">
-<h2 class="form-signin-heading">Logga In</h2>
+<h2 class="logo-login">Innebandy</h2>
 </form>
 <form action="index.php" class="form-signin" method="post">
+<div class="form-group">
 <input type="text" value="Innebandy" class="form-control"
        name="user" placeholder="User">
+</div>
+<div class="form-group">
 <input type="password" class="form-control" name="passwd"
        placeholder="Password" autofocus>
+</div>
 <input type="submit" class="btn btn-lg btn-primary btn-block"
        name="submit" value="Logga in">
 </form>
