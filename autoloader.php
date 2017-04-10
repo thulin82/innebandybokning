@@ -5,7 +5,7 @@
 * PHP version 5
 *
 * @param string $class The name of the class.
-*  
+*
 * @category Autoloader
 * @package  Innebandybokning
 * @author   Markus Thulin <macky_b@hotmail.com>

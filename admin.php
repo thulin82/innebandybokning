@@ -119,7 +119,7 @@ if ($sess_id == 2) {
         'SELECT value FROM variables WHERE name="enable_guests"'
     );
     $row    = $result->fetch_all(MYSQLI_ASSOC);
-    if (($row[0]['value']) == 0 ) {
+    if (($row[0]['value']) == 0) {
         echo 'Ej tillgängligt: <span class="glyphicon glyphicon-remove" ';
         echo 'aria-hidden="true"></span>';
     } else {

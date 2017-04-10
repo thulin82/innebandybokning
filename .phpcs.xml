@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ruleset name="PHPCS rule set">
+    <description>Custom rule set.</description>
+
+    <file>.</file>
+
+    <exclude-pattern>build</exclude-pattern>
+    <exclude-pattern>cache</exclude-pattern>
+    <exclude-pattern>report</exclude-pattern>
+
+    <arg name="encoding" value="utf-8"/>
+    <arg name="warning-severity" value="0"/>
+
+    <rule ref="PSR2">
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+    </rule>
+</ruleset>

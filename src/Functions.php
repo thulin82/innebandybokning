@@ -69,7 +69,7 @@ class Functions
     public function sanitize($input)
     {
         if (is_array($input)) {
-            foreach ($input as $var=>$val) {
+            foreach ($input as $var => $val) {
                 $output[$var] = self::sanitize($val);
             }
         } else {

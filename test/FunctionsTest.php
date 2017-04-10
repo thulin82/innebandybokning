@@ -29,7 +29,7 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp() 
+    public function setUp()
     {
         $this->_test = new Functions();
     }
@@ -39,7 +39,7 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown() 
+    public function tearDown()
     {
         unset($this->_test);
     }
@@ -49,7 +49,7 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testSanitize() 
+    public function testSanitize()
     {
         $string  = "test00900åäö";
         $res     = $this->_test->sanitize($string);
@@ -61,7 +61,7 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testSanitizeArray() 
+    public function testSanitizeArray()
     {
         $array   = ["first" => "test00900åäö", "second" => "åäö00900test"];
         $res     = $this->_test->sanitize($array);
@@ -73,7 +73,7 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testSanitizeBadString() 
+    public function testSanitizeBadString()
     {
         $string  = "Hi! <script src='http://www.evilsite.com"
             . "/bad_script.js'></script> It's a good day!";
@@ -87,7 +87,7 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testSingleIntAllowedInt() 
+    public function testSingleIntAllowedInt()
     {
         $test = '3';
         $res = $this->_test->singleInt($test);
@@ -99,7 +99,7 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testSingleIntDisAllowedInt() 
+    public function testSingleIntDisAllowedInt()
     {
         $test = '33';
         $res = $this->_test->singleInt($test);
@@ -111,7 +111,7 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function testSingleIntDisAllowedString() 
+    public function testSingleIntDisAllowedString()
     {
         $test = 'disallowed_string';
         $res = $this->_test->singleInt($test);

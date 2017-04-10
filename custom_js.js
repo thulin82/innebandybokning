@@ -1,6 +1,6 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $('.input-span1').keyup(function() {
+    $('.input-span1').keyup(function () {
         var content = $(this).val();
 
         if (content > 9) {

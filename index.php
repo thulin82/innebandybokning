@@ -78,7 +78,6 @@ if (isset($_GET['logout'])) {
 <?php
 // If session not set show login form
 if (!isset($_SESSION['sess_user'])) {
- 
     // Show error message when bad login occurs
     if (isset($_GET['badlogin'])) {
         echo "Wrong username & password<br>\n";
@@ -102,7 +101,7 @@ if (!isset($_SESSION['sess_user'])) {
        name="submit" value="Logga in">
 </form>
 
-<?php 
+<?php
 } else {
 ?>
 <form class="form-signin">
@@ -116,7 +115,7 @@ if (!isset($_SESSION['sess_user'])) {
    role="button">Tillbaka till Bokning</a>
 </div>
 <?php
-}  
+}
 ?> 
 
 </div> <!-- /container -->
