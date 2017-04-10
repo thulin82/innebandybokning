@@ -21,7 +21,7 @@
 * @license  http://www.opensource.org/licenses/mit-license.php MIT
 * @link     https://github.com/thulin82/arsenal_webscrape
 */
-class FunctionsTest extends \PHPUnit_Framework_TestCase
+class FunctionsTest extends \PHPUnit\Framework\TestCase
 {
     private $_test;
     /**

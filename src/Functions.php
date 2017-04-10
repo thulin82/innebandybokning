@@ -68,7 +68,6 @@ class Functions
     */
     public function sanitize($input)
     {
-        $output ='';
         if (is_array($input)) {
             foreach ($input as $var=>$val) {
                 $output[$var] = self::sanitize($val);
