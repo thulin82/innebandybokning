@@ -15,13 +15,13 @@ before_script:
   - wget https://scrutinizer-ci.com/ocular.phar
   - cd ..
   - git clone git://github.com/squizlabs/PHP_CodeSniffer.git
-  - php PHP_CodeSniffer/scripts/phpcs -h
-  - php PHP_CodeSniffer/scripts/phpcbf -h
+  - php PHP_CodeSniffer/bin/phpcs -h
+  - php PHP_CodeSniffer/bin/phpcbf -h
   - phpenv rehash
 
 script:
-  - php PHP_CodeSniffer/scripts/phpcs -i
-  - php PHP_CodeSniffer/scripts/phpcs --standard=/home/travis/build/thulin82/innebandybokning/.phpcs.xml
+  - php PHP_CodeSniffer/bin/phpcs -i
+  - php PHP_CodeSniffer/bin/phpcs --standard=/home/travis/build/thulin82/innebandybokning/.phpcs.xml
   - cd innebandybokning
   - phpunit
   
