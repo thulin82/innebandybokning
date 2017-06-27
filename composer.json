@@ -1,0 +1,19 @@
+{
+    "name": "thulin82/innebandybokning",
+    "description": "A booking page for innebandy",
+    "license": "MIT",
+    "authors": [
+            {
+                "name": "Markus Thulin",
+                "email": "macky_b@hotmail.com"
+            }
+    ],
+    "require": {
+        "twbs/bootstrap": "v3.3.*",
+        "phpmailer/phpmailer": "v5.2.*",
+        "robmorgan/phinx": "v0.8.*"
+    },
+    "autoload": {
+        "psr-4": {"Thulin\\": "src/"}
+    }
+}
