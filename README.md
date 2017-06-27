@@ -10,20 +10,20 @@
 * MySQL Database
 
 ## Install
-Run `composer install` to install dependencies
-Run `vendor/bin/phinx migrate -e development` to set up database
-Run `vendor/bin/phinx seed:run` to seed test data
+* Run `composer install` to install dependencies
+* Run `vendor/bin/phinx migrate -e development` to set up database
+* Run `vendor/bin/phinx seed:run` to seed test data
 
 
 ### User Data
-Replace these varibales in connect.php with your dB-info
+Replace these variables in connect.php with your dB-info
 ```php
 $mysql_server = "SERVER_NAME";
 $mysql_user = "USER_NAME";
 $mysql_password = "USER_PASSWORD";
 $mysql_database = "DATABASE_NAME";
 ```
-Replace these varibales in _maila.php with your mail-info
+Replace these variables in _maila.php with your mail-info
 ```php
 $gmail_account  = 'GMAIL_ACCOUNT';
 $gmail_password = 'GMAIL_PASSWORD';
