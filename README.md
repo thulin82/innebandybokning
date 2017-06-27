@@ -6,56 +6,15 @@
 
 ## Requirements
 
-* [PHP](http://php.net/) - The latest version of PHP is highly recommended
-* MySQL or similar dB
-* [Bootstrap](http://getbootstrap.com/) - Bootstrap for frontend
-* [PHPMailer](https://github.com/PHPMailer/PHPMailer) - In order to use the mailing functions (reminders)
+* [Composer](https://getcomposer.org) - Composer is used for dependency management
+* MySQL Database
 
-## SQL
+## Install
+Run `composer install` to install dependencies
+Run `vendor/bin/phinx migrate -e development` to set up database
+Run `vendor/bin/phinx seed:run` to seed test data
 
-### Tables
-```SQL
-CREATE TABLE `password` (
-  `id` int,
-  `user` varchar,
-  `password_hash` varchar
-);
-CREATE TABLE `stats` (
-  `id` int,
-  `name` varchar,
-  `total_leader` int,
-  `season_leader` int,
-  `aut2012` int,
-  `spring2013` int,
-  `aut2013` int,
-  `spring2014` int,
-  `aut2014` int,
-  `spring2015` int,
-  `aut2015` int,
-  `spring2016` int,
-  `nbr_seasons` int
-);
-CREATE TABLE `users` (
-  `id` int,
-  `name` varchar,
-  `mail` varchar,
-  `attend` int,
-  `guests` int,
-  `coop` int,
-  `nbr_of_attends` int
-);
-CREATE TABLE `variables` (
-  `id` int,
-  `name` varchar,
-  `value` int
-);
-CREATE TABLE `weekdata` (
-  `id` int,
-  `week` int,
-  `currentweek` int,
-  `date` varchar
-);
-```
+
 ### User Data
 Replace these varibales in connect.php with your dB-info
 ```php
