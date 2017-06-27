@@ -1,12 +1,4 @@
-#Bootstrap folders
-css
-fonts
-js
-
-#PHPMailer
-PHPMailer_v5.1
-
-#During development
+#Dependencies
 vendor
 
 #Tests
