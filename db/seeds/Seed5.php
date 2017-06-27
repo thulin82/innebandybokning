@@ -14,6 +14,5 @@ class Seed5 extends AbstractSeed
      */
     public function run()
     {
-
     }
 }

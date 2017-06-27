@@ -52,6 +52,5 @@ class Seed extends AbstractSeed
         $users = $this->table('users');
         $users->insert($data)
               ->save();
-
     }
 }
