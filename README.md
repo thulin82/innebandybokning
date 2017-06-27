@@ -1,8 +1,8 @@
 # [Innebandybokning](https://github.com/thulin82/innebandybokning)
-[![Build Status](https://travis-ci.org/thulin82/innebandybokning.svg?branch=master)](https://travis-ci.org/thulin82/innebandybokning)
-[![Build Status](https://scrutinizer-ci.com/g/thulin82/innebandybokning/badges/build.png?b=master)](https://scrutinizer-ci.com/g/thulin82/innebandybokning/build-status/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/thulin82/innebandybokning/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/thulin82/innebandybokning/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/thulin82/innebandybokning/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/thulin82/innebandybokning/?branch=master)
+[![Build Status](https://travis-ci.org/thulin82/innebandybokning.svg?branch=2.0)](https://travis-ci.org/thulin82/innebandybokning)
+[![Build Status](https://scrutinizer-ci.com/g/thulin82/innebandybokning/badges/build.png?b=2.0)](https://scrutinizer-ci.com/g/thulin82/innebandybokning/build-status/2.0)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/thulin82/innebandybokning/badges/quality-score.png?b=2.0)](https://scrutinizer-ci.com/g/thulin82/innebandybokning/?branch=2.0)
+[![Code Coverage](https://scrutinizer-ci.com/g/thulin82/innebandybokning/badges/coverage.png?b=2.0)](https://scrutinizer-ci.com/g/thulin82/innebandybokning/?branch=2.0)
 
 ## Requirements
 
