@@ -2,7 +2,7 @@
 /**
 * Book
 *
-* PHP version 5
+* PHP version 7
 *
 * @category Book
 * @package  Innebandybokning
@@ -10,13 +10,11 @@
 * @license  http://www.opensource.org/licenses/mit-license.php MIT
 * @link     https://github.com/thulin82/innebandybokning
 */
-session_start();
- 
-require 'connect.php';
-require 'src/Functions.php';
-require 'sql_functions.php';
+require 'config.php';
 
-$nbr_of_users = getNbrOfUsers(); //Total users in database
+
+//$nbr_of_users = getNbrOfUsers(); //Total users in database
+$nbr_of_users = $sql->getNbrOfUsers();
 
 // I session set = user logged in
 if (!isset($_SESSION['sess_user'])) {
@@ -24,6 +22,7 @@ if (!isset($_SESSION['sess_user'])) {
     exit;
 }
 // If 1-15, change attending status
+/*
 for ($i = 1; $i <= $nbr_of_users; $i++) {
     if (isset($_POST[$i])) {
         $query = sprintf(
@@ -64,14 +63,14 @@ for ($k = 1001; $k <= (1001 + $nbr_of_users); $k++) {
         }
     }
 }
-
-$currentdate         = getCalenderInfo('date'); // This week's date
-$currentweek         = getCalenderInfo('week'); //This week's week nbr
-$nbr_of_attends      = getNbrOfAttends('1'); //Nbr of attends for this week
-$nbr_of_not_attends  = getNbrOfAttends('0'); //Nbr of not attending for this week
-$nbr_of_not_answered = getNbrOfAttends('2'); //Nbr of not answered for this week
-$enable_guests       = getIsGuestsEnabled(); //Is guests enabled?
-$nbr_of_guests       = getNbrOfGuests(); //Nbr of guests for this week
+*/
+$currentdate         = $sql->getCalenderInfo('date'); // This week's date
+$currentweek         = $sql->getCalenderInfo('week'); //This week's week nbr
+$nbr_of_attends      = $sql->getNbrOfAttends('1'); //Nbr of attends for this week
+$nbr_of_not_attends  = $sql->getNbrOfAttends('0'); //Nbr of not attending for this week
+$nbr_of_not_answered = $sql->getNbrOfAttends('2'); //Nbr of not answered for this week
+$enable_guests       = $sql->getIsGuestsEnabled(); //Is guests enabled?
+$nbr_of_guests       = $sql->getNbrOfGuests(); //Nbr of guests for this week
 $total               = $nbr_of_guests + $nbr_of_attends; //Total nbr of attendees
 $sess_id             = $_SESSION['sess_id']; //Session-ID
 ?>
@@ -85,9 +84,9 @@ $sess_id             = $_SESSION['sess_id']; //Session-ID
 <title>Innebandybokning</title>
 
 <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link href="custom_style.css" rel="stylesheet">
+<link href="css/custom_style.css" rel="stylesheet">
 
 <!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 <!--WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -139,19 +138,18 @@ echo '</h1><br>';
 echo'<div class="alert alert-warning" role="alert">';
 echo '<strong>Info!</strong> Hela sidan är ombyggd från grunden, ';
 echo 'både front- och backend. Om den uppför sig konstigt, hör av er!</div>';
-$result = $mysqli->query('SELECT * FROM users ORDER BY id ASC');
-$row    = $result->fetch_all(MYSQLI_ASSOC);
+$result = $db->executeQuery('SELECT * FROM users ORDER BY id ASC');
 $i      = 1;
 $j      = 101;
 $k      = 1001;
 echo '<table class="table table-striped"><thead><tr><th>ID</th><th>Namn</th><th>';
 echo 'Kommer?</th><th>&Auml;ndra</th><th>G&auml;ster</th>';
 echo '<th>Sam&aring;kning</th></tr></thead><tbody>';
-foreach ($row as $key => $value) {
-    echo '<tr><td>' . $value['id'] . '</td><td>' . $value['name'] . '</td><td>';
-    if ($value['attend'] == 1) {
+foreach ($result as $key => $value) {
+    echo '<tr><td>' . $value->id . '</td><td>' . $value->name . '</td><td>';
+    if ($value->attend == 1) {
         echo '<span class="label label-success">Kommer</span>';
-    } else if ($value['attend'] == 2) {
+    } else if ($value->attend == 2) {
         echo '<span class="label label-warning">Ej Svarat</span>';
     } else {
         echo '<span class="label label-danger">Kommer Ej</span>';
@@ -163,18 +161,18 @@ foreach ($row as $key => $value) {
         echo '<td><form name="form" class="input-sm" ';
         echo 'method="post"><input type="text" ';
         echo 'class="input-span1" name="' . $j . '" value="';
-        echo $value['guests'] . '"/></form></td>';
+        echo $value->guests . '"/></form></td>';
     } else {
         echo '<td><form name="form" class="input-sm" ';
         echo 'method="post"><input type="text" ';
         echo 'class="input-span1" name="' . $j . '" value="';
-        echo $value['guests'] . '" disabled/></form></td>';
+        echo $value->guests . '" disabled/></form></td>';
     }
-    if ($value['coop'] == 1) {
+    if ($value->coop == 1) {
         echo '<td><form name="form" method="post">';
         echo '<input class="btn btn-success btn-sm" type="submit"';
         echo 'name="' . $k . '" value="Kör Andra" /></form></td>';
-    } else if ($value['coop'] == 2) {
+    } else if ($value->coop == 2) {
         echo '<td><form name="form" method="post">';
         echo '<input class="btn btn-primary btn-sm" type="submit"';
         echo 'name="' . $k . '" value="Kör Själv" /></form></td>';
@@ -207,7 +205,7 @@ echo ' :  ' . $total . '</h2>';
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 </script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<script src="custom_js.js"></script>
+<script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/custom_js.js"></script>
 </body>
 </html>
