@@ -2,7 +2,7 @@
 /**
 * Index
 *
-* PHP version 5
+* PHP version 7
 *
 * @category Index
 * @package  Innebandybokning
@@ -10,10 +10,8 @@
 * @license  http://www.opensource.org/licenses/mit-license.php MIT
 * @link     https://github.com/thulin82/innebandybokning
 */
-session_start();
- 
-require 'connect.php';
-require 'src/Functions.php';
+
+require 'config.php';
 
 //Login
 if (isset($_POST['submit'])) {
@@ -21,20 +19,11 @@ if (isset($_POST['submit'])) {
     $_POST  = $clean->sanitize($_POST);
     $passwd = filter_var($_POST['passwd'], FILTER_SANITIZE_STRING);
     $user   = filter_var($_POST['user'], FILTER_SANITIZE_STRING);
-    $query  = sprintf(
-        'SELECT id, password_hash FROM password WHERE user="%s"', $user
-    );
-    $result = $mysqli->query($query);
+    $query  = 'SELECT id, password_hash FROM password WHERE user=?';
+    $result = $db->executeQuery($query, array($user));
  
-    //User not found, return with "bad login"
-    if ($result->num_rows == 0) {
-        header('Location: index.php?badlogin=');
-        exit;
-    }
- 
-    // User found, password check
-    $row = $result->fetch_array();
-    if (password_verify($passwd, $row['password_hash'])) {
+    // Password check
+    if (password_verify($passwd, $result[0]->password_hash)) {
         $_SESSION['sess_id']   = $row['id'];
         $_SESSION['sess_user'] = $user;
         header('Location: book.php');
@@ -52,7 +41,9 @@ if (isset($_GET['logout'])) {
     header('Location: index.php');
     exit;
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -62,9 +53,9 @@ if (isset($_GET['logout'])) {
 <title>Innebandybokning</title>
 
 <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="signin.css" rel="stylesheet">
+<link href="css/signin.css" rel="stylesheet">
 
 <!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 <!--WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -90,7 +81,7 @@ if (!isset($_SESSION['sess_user'])) {
 </form>
 <form action="index.php" class="form-signin" method="post">
 <div class="form-group">
-<input type="text" value="Innebandy" class="form-control"
+<input type="text" value="user" class="form-control"
        name="user" placeholder="User">
 </div>
 <div class="form-group">
@@ -124,6 +115,6 @@ if (!isset($_SESSION['sess_user'])) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 </script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
