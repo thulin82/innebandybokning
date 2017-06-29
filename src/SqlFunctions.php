@@ -13,11 +13,11 @@
 class SqlFunctions
 {
 
-    private $db = null;
+    private $dbase = null;
 
-    public function __construct($db)
+    public function __construct($dbase)
     {
-        $this->db = $db;
+        $this->dbase = $dbase;
     }
     
     
@@ -112,7 +112,7 @@ class SqlFunctions
     public function getNbrOfAttends($status)
     {
         $query  = 'SELECT COUNT(`attend`) AS Attending FROM `users` WHERE `attend`=?';
-        $result = $this->db->executeQuery($query, array($status));
+        $result = $this->dbase->executeQuery($query, array($status));
 
         return $result[0]->Attending;
     }
@@ -125,7 +125,7 @@ class SqlFunctions
     public function getNbrOfGuests()
     {
         $query  = 'SELECT SUM( guests ) AS Guests FROM users';
-        $result = $this->db->executeQuery($query);
+        $result = $this->dbase->executeQuery($query);
 
         return $result[0]->Guests;
     }
@@ -138,7 +138,7 @@ class SqlFunctions
     public function getIsGuestsEnabled()
     {
         $query  = 'SELECT `value` FROM `variables` WHERE `name`="enable_guests"';
-        $result = $this->db->executeQuery($query);
+        $result = $this->dbase->executeQuery($query);
 
         return $result[0]->value;
     }
@@ -146,16 +146,16 @@ class SqlFunctions
     /**
     * GetCalenderInfo
     *
-    * @param string $calender_object String with Calender Object
+    * @param string $calenderObject String with Calender Object
     *
     * @return int Guests enabled or not
     */
-    public function getCalenderInfo($calender_object)
+    public function getCalenderInfo($calenderObject)
     {
         $query  = 'SELECT * FROM `weekdata` WHERE `currentweek`=1';
-        $result = $this->db->executeQuery($query);
+        $result = $this->dbase->executeQuery($query);
 
-        return $result[0]->$calender_object;
+        return $result[0]->$calenderObject;
     }
 
     /**
@@ -166,7 +166,7 @@ class SqlFunctions
     public function getNbrOfUsers()
     {
         $query  = 'SELECT COUNT(*) AS nbr FROM users';
-        $result = $this->db->executeQuery($query);
+        $result = $this->dbase->executeQuery($query);
 
         return $result[0]->nbr;
     }

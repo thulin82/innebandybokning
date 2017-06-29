@@ -64,7 +64,7 @@ class Functions
     * @license  http://www.opensource.org/licenses/mit-license.php MIT
     * @link     https://github.com/thulin82/innebandybokning
     *
-    * @return array<String>|string $output
+    * @return array|string $output
     */
     public function sanitize($input)
     {

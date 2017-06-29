@@ -15,7 +15,7 @@ class Connect
 {
 
     private $options;
-    private $db   = null;
+    private $dbase   = null;
     private $stmt = null;
 
     public function __construct($options)
@@ -30,18 +30,27 @@ class Connect
         $this->options = array_merge($default, $options);
 
         try {
-            $this->db = new PDO($this->options['dsn'], $this->options['username'], $this->options['password'], $this->options['driver_options']);
+            $this->dbase = new PDO($this->options['dsn'], $this->options['username'], $this->options['password'], $this->options['driver_options']);
         } catch (Exception $e) {
             //throw $e;
             throw new PDOException('Could not connect to database, hiding connection details.');
         }
     
-        $this->db->SetAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_style']);
+        $this->dbase->SetAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_style']);
     }
+    
+   /**
+    * Execute Query
+    *
+    * @param string $input The sql query
+    * @param array $params The parameters used in the query
+    *
+    * @return array $res The result of the query
+    */
 
     public function executeQuery($query, $params = array())
     {
-        $this->stmt = $this->db->prepare($query);
+        $this->stmt = $this->dbase->prepare($query);
         $this->stmt->execute($params);
         $res = $this->stmt->fetchAll();
 

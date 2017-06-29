@@ -13,8 +13,7 @@
 require 'config.php';
 
 
-//$nbr_of_users = getNbrOfUsers(); //Total users in database
-$nbr_of_users = $sql->getNbrOfUsers();
+$nbr_of_users = $sql->getNbrOfUsers(); //Total users in database
 
 // I session set = user logged in
 if (!isset($_SESSION['sess_user'])) {
