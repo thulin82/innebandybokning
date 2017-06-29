@@ -2,7 +2,7 @@
 /**
 * About
 *
-* PHP version 5
+* PHP version 7
 *
 * @category About
 * @package  Innebandybokning
@@ -10,10 +10,7 @@
 * @license  http://www.opensource.org/licenses/mit-license.php MIT
 * @link     https://github.com/thulin82/innebandybokning
 */
-session_start();
- 
-require 'connect.php';
-require 'src/Functions.php';
+require 'config.php';
 
 // I session set = user logged in
 if (!isset($_SESSION['sess_user'])) {
@@ -31,9 +28,9 @@ if (!isset($_SESSION['sess_user'])) {
 <title>Innebandybokning</title>
 
 <!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link href="custom_style.css" rel="stylesheet">
+<link href="css/custom_style.css" rel="stylesheet">
 
 <!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 <!--WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -97,6 +94,6 @@ if ($sess_id == 2) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 </script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
