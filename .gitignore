@@ -7,3 +7,4 @@ coverage.clover
 
 #Not to be commited
 phinx.yml
+config.php
