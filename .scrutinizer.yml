@@ -40,6 +40,6 @@ checks:
         one_class_per_file: false
         side_effects_or_types: false
 filter:
-    excluded_paths: [test/*]
+    excluded_paths: [test/*, db/*]
 tools:
     external_code_coverage: true
