@@ -8,7 +8,7 @@
 * @package  Innebandybokning
 * @author   Markus Thulin <macky_b@hotmail.com>
 * @license  http://www.opensource.org/licenses/mit-license.php MIT
-* @link     https://github.com/thulin82/arsenal_webscrape
+* @link     https://github.com/thulin82/innebandybokning
 */
 /**
 * Functions Test
@@ -19,7 +19,7 @@
 * @package  Innebandybokning
 * @author   Markus Thulin <macky_b@hotmail.com>
 * @license  http://www.opensource.org/licenses/mit-license.php MIT
-* @link     https://github.com/thulin82/arsenal_webscrape
+* @link     https://github.com/thulin82/innebandybokning
 */
 class FunctionsTest extends \PHPUnit\Framework\TestCase
 {
