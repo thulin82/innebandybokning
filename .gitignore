@@ -4,3 +4,6 @@ vendor
 #Tests
 report
 coverage.clover
+
+#Not to be commited
+phinx.yml
