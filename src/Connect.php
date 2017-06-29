@@ -15,12 +15,12 @@ class Connect
 {
 
     private $options;
-    private $dbase   = null;
-    private $stmt = null;
+    private $dbase = null;
+    private $stmt  = null;
 
     public function __construct($options)
     {
-        $default = array(
+        $default       = array(
             'dsn' => null,
             'username' => null,
             'password' => null,
@@ -42,8 +42,8 @@ class Connect
    /**
     * Execute Query
     *
-    * @param string $input The sql query
-    * @param array $params The parameters used in the query
+    * @param string $query  The sql query
+    * @param array  $params The parameters used in the query
     *
     * @return array $res The result of the query
     */
