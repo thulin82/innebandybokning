@@ -21,7 +21,7 @@ class SqlFunctionsTest extends \PHPUnit\Framework\TestCase
      */
     public function setUp()
     {
-        $array = array('dsn' => 'mysql:memory::');
+        $array = array('dsn' => 'sqlite::memory:');
         $this->_test = new Connect($array);
         $this->_database = new SqlFunctions($this->_test);
     }
