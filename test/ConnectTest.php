@@ -4,17 +4,6 @@
 *
 * PHP version 7
 *
-* @category ConnectTest
-* @package  Innebandybokning
-* @author   Markus Thulin <macky_b@hotmail.com>
-* @license  http://www.opensource.org/licenses/mit-license.php MIT
-* @link     https://github.com/thulin82/innebandybokning
-*/
-/**
-* Connect Test
-*
-* PHP version 7
-*
 * @category ConnnectTest
 * @package  Innebandybokning
 * @author   Markus Thulin <macky_b@hotmail.com>
@@ -31,6 +20,8 @@ class ConnectTest extends \PHPUnit\Framework\TestCase
      */
     public function setUp()
     {
+        $array = array('dsn' => 'mysql:memory::');
+        $this->_test = new Connect($array);
     }
     
     /**
@@ -40,6 +31,7 @@ class ConnectTest extends \PHPUnit\Framework\TestCase
      */
     public function tearDown()
     {
+        unset($this->_test);
     }
     
     /**

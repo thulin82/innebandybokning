@@ -2,18 +2,7 @@
 /**
 * Functions Test
 *
-* PHP version 5
-*
-* @category FunctionsTest
-* @package  Innebandybokning
-* @author   Markus Thulin <macky_b@hotmail.com>
-* @license  http://www.opensource.org/licenses/mit-license.php MIT
-* @link     https://github.com/thulin82/innebandybokning
-*/
-/**
-* Functions Test
-*
-* PHP version 5
+* PHP version 7
 *
 * @category FunctionsTest
 * @package  Innebandybokning
