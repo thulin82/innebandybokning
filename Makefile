@@ -102,7 +102,7 @@ test-phpcs:
 .PHONY: composer-install
 composer-install:
 	@$(call HELPTEXT,$@)
-	if [ -f composer.json ]; then composer install; fi
+	composer install
 
 
 
@@ -110,4 +110,4 @@ composer-install:
 .PHONY: composer-update
 composer-update:
 	@$(call HELPTEXT,$@)
-	if [ -f composer.json ]; composer update; fi
+	composer update
