@@ -142,8 +142,7 @@ $i      = 1;
 $j      = 101;
 $k      = 1001;
 echo '<table class="table table-striped"><thead><tr><th>ID</th><th>Namn</th><th>';
-echo 'Kommer?</th><th>&Auml;ndra</th><th>G&auml;ster</th>';
-echo '<th>Sam&aring;kning</th></tr></thead><tbody>';
+echo 'Kommer?</th><th>&Auml;ndra</th><th>G&auml;ster</th></tr></thead><tbody>';
 foreach ($result as $key => $value) {
     echo '<tr><td>' . $value->id . '</td><td>' . $value->name . '</td><td>';
     if ($value->attend == 1) {
@@ -167,23 +166,9 @@ foreach ($result as $key => $value) {
         echo 'class="input-span1" name="' . $j . '" value="';
         echo $value->guests . '" disabled/></form></td>';
     }
-    if ($value->coop == 1) {
-        echo '<td><form name="form" method="post">';
-        echo '<input class="btn btn-success btn-sm" type="submit"';
-        echo 'name="' . $k . '" value="Kör Andra" /></form></td>';
-    } else if ($value->coop == 2) {
-        echo '<td><form name="form" method="post">';
-        echo '<input class="btn btn-primary btn-sm" type="submit"';
-        echo 'name="' . $k . '" value="Kör Själv" /></form></td>';
-    } else {
-        echo '<td><form name="form" method="post">';
-        echo '<input class="btn btn-info btn-sm" type="submit"';
-        echo 'name="' . $k . '" value="Vill Åka " /></form></td>';
-    }
     echo '</tr>';
     $i++;
     $j++;
-    $k++;
 }
 echo '</tbody></table>';
 echo '<span class="label label-success">Kommer</span>';
