@@ -111,3 +111,11 @@ composer-install:
 composer-update:
 	@$(call HELPTEXT,$@)
 	composer update
+
+
+
+# target: composer-check          - Check composer packages compared to latest
+.PHONY: composer-check
+composer-check:
+	@$(call HELPTEXT,$@)
+	composer outdated
