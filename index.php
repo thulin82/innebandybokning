@@ -74,7 +74,7 @@ if (!isset($_SESSION['sess_user'])) {
         echo "Wrong username & password<br>\n";
         echo "Please try again!\n";
     }
-?>
+    ?>
 
 <form class="form-signin">
 <h2 class="logo-login">Innebandy</h2>
@@ -92,9 +92,9 @@ if (!isset($_SESSION['sess_user'])) {
        name="submit" value="Logga in">
 </form>
 
-<?php
+    <?php
 } else {
-?>
+    ?>
 <form class="form-signin">
 <input type="button" value="Logga ut"
        class="btn btn-lg btn-primary btn-block btn-danger"
@@ -105,7 +105,7 @@ if (!isset($_SESSION['sess_user'])) {
 <a href="book.php" class="btn btn-lg btn-primary btn-block"
    role="button">Tillbaka till Bokning</a>
 </div>
-<?php
+    <?php
 }
 ?> 
 

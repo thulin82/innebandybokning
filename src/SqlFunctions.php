@@ -60,7 +60,8 @@ class SqlFunctions
         include 'connect.php';
         $query  = sprintf(
             'SELECT `name`, `%s` FROM `stats` WHERE `%s`!=0 ORDER BY `%s` DESC',
-            $mysqli->real_escape_string($season), $mysqli->real_escape_string($season),
+            $mysqli->real_escape_string($season),
+            $mysqli->real_escape_string($season),
             $mysqli->real_escape_string($season)
         );
         $result = $mysqli->query($query);

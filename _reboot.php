@@ -14,13 +14,14 @@ session_start();
  
 require 'connect.php';
 
-// ADD 1 to nbr_of_attends 
+// ADD 1 to nbr_of_attends
 $result = $mysqli->query('SELECT name FROM users WHERE attend="1" ORDER BY id ASC');
 $row    = $result->fetch_all(MYSQLI_ASSOC);
 foreach ($row as $key => $value) {
     $query = sprintf(
         'UPDATE users SET nbr_of_attends = nbr_of_attends + 1
-        WHERE name = "%s"', $value['name']
+        WHERE name = "%s"',
+        $value['name']
     );
     $mysqli->query($query);
 }
