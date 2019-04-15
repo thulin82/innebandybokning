@@ -77,7 +77,7 @@ database-seed:
 #
 # target: test                    - Run tests
 .PHONY: test
-test: test-phpunit test-phpcs
+test: test-phpunit test-phpcs test-phpstan
 
 
 # target: test-phpunit            - Run PHPUnit according to phpunit.xml.dist.
@@ -92,6 +92,13 @@ test-phpunit:
 test-phpcs:
 	@$(call HELPTEXT,$@)
 	phpcs --standard=.phpcs.xml
+	
+	
+# target: test-phpstan            - Run PHPStan according to default model
+.PHONY: test-phpstan
+test-phpstan:
+	@$(call HELPTEXT,$@)
+	vendor/bin/phpstan analyze src
 
 
 # ----------------------------------------------------------------------------

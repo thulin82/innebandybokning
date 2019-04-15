@@ -39,7 +39,7 @@ class InitDatabase extends AbstractMigration
                ->addColumn('total_leader', 'integer')
                ->addColumn('season_leader', 'integer')
                ->addColumn('aut2012', 'integer')
-               ->addColumn('spring2012', 'integer')
+               ->addColumn('spring2013', 'integer')
                ->create();
               
         //Create the third table
