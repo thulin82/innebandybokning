@@ -84,14 +84,14 @@ test: test-phpunit test-phpcs test-phpstan
 .PHONY: test-phpunit
 test-phpunit:
 	@$(call HELPTEXT,$@)
-	phpunit
+	vendor/bin/phpunit
 
 
 # target: test-phpcs              - Run PHP Code Sniffer according to phpcs.xml.
 .PHONY: test-phpcs
 test-phpcs:
 	@$(call HELPTEXT,$@)
-	phpcs --standard=.phpcs.xml
+	vendor/bin/phpcs --standard=.phpcs.xml
 	
 	
 # target: test-phpstan            - Run PHPStan according to default model
