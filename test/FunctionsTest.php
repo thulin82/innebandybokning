@@ -18,7 +18,7 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->_test = new Functions();
     }
@@ -28,7 +28,7 @@ class FunctionsTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         unset($this->_test);
     }

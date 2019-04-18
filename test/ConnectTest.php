@@ -18,7 +18,7 @@ class ConnectTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         $array = array('dsn' => 'sqlite::memory:');
         $this->_test = new Connect($array);
@@ -29,7 +29,7 @@ class ConnectTest extends \PHPUnit\Framework\TestCase
      *
      * @return void
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         unset($this->_test);
     }
