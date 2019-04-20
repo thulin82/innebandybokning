@@ -12,4 +12,4 @@
 * @license  http://www.opensource.org/licenses/mit-license.php MIT
 * @link     https://github.com/thulin82/innebandybokning
 */
-require __DIR__ . '/../autoloader.php';
+require __DIR__ . '/../vendor/autoload.php';

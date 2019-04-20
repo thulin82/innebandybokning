@@ -12,7 +12,7 @@
 */
 session_start();
  
-require 'autoloader.php';
+require 'vendor/autoload.php';
 
 // Connect to a MySQL database using PHP PDO
 $options['database']['dsn']            = 'mysql:host=localhost;dbname=development_db';
