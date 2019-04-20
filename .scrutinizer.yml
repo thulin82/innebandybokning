@@ -36,5 +36,5 @@ build:
         analysis: 
             tests: 
                 override: 
-                     - phpcs-run 
+                     - phpcs-run --standard=.phpcs.xml
                      - php-scrutinizer-run
