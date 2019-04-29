@@ -20,7 +20,6 @@ class Seed extends AbstractSeed
                 'mail'           => 'anders.andersson@test.test',
                 'attend'         => 2,
                 'guests'         => 0,
-                'coop'           => 2,
                 'nbr_of_attends' => 0,
             ),
             array(
@@ -28,7 +27,6 @@ class Seed extends AbstractSeed
                 'mail'           => 'bertil.bengtsson@test.test',
                 'attend'         => 2,
                 'guests'         => 0,
-                'coop'           => 2,
                 'nbr_of_attends' => 0,
             ),
             array(
@@ -36,7 +34,6 @@ class Seed extends AbstractSeed
                 'mail'           => 'conny.connysson@test.test',
                 'attend'         => 2,
                 'guests'         => 0,
-                'coop'           => 2,
                 'nbr_of_attends' => 0,
             ),
             array(
@@ -44,7 +41,6 @@ class Seed extends AbstractSeed
                 'mail'           => 'david.danielsson@test.test',
                 'attend'         => 2,
                 'guests'         => 0,
-                'coop'           => 2,
                 'nbr_of_attends' => 0,
             )
         );

@@ -40,6 +40,9 @@ class InitDatabase extends AbstractMigration
                ->addColumn('season_leader', 'integer')
                ->addColumn('aut2012', 'integer')
                ->addColumn('spring2013', 'integer')
+               ->addColumn('aut2013', 'integer')
+               ->addColumn('spring2014', 'integer')
+               ->addColumn('nbr_seasons', 'integer')
                ->create();
               
         //Create the third table
@@ -48,7 +51,6 @@ class InitDatabase extends AbstractMigration
                ->addColumn('mail', 'string')
                ->addColumn('attend', 'integer')
                ->addColumn('guests', 'integer')
-               ->addColumn('coop', 'integer')
                ->addColumn('nbr_of_attends', 'integer')
                ->create();
                
