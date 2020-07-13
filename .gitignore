@@ -1,0 +1,11 @@
+#Dependencies
+vendor
+
+#Tests
+report
+coverage.clover
+.phpunit.result.cache
+
+#Not to be commited
+phinx.yml
+config.php
