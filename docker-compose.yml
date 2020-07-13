@@ -1,0 +1,43 @@
+version: '3'
+services:
+    db:
+        image: mysql:5.7
+        container_name: mysql57
+        command: --default-authentication-plugin=mysql_native_password
+        volumes:
+            - dbvolume:/var/lib/mysql
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=root_pw
+            - MYSQL_DATABASE=my_db
+            - MYSQL_USER=db_user
+            - MYSQL_PASSWORD=my_pw
+        ports:
+            - 8082:3306
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        container_name: phpmyadmin
+        volumes:
+            - /sessions
+        environment:
+            - MYSQL_ROOT_PASSWORD=root_pw
+            - MYSQL_USER=db_user
+            - MYSQL_PASSWORD=my_pw
+        ports:
+            - 8090:80
+        depends_on:
+            - db
+    website:
+        container_name: php74
+        image: innebandy:latest
+        build:
+            context: ./
+        volumes:
+            - .:/var/www/html/
+        ports:
+            - 8000:80
+        depends_on:
+            - db
+
+volumes:
+    dbvolume:
