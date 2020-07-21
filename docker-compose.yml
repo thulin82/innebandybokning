@@ -28,7 +28,7 @@ services:
         depends_on:
             - db
     website:
-        container_name: php74
+        container_name: innebandy
         image: innebandy:latest
         build:
             context: ./
