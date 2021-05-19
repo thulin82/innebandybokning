@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php';?>
-    <div class="jumbotron jumbotron-fluid text-center">
-        <div class="container">
+    <div class="p-5 mb-4 bg-light rounded-3 text-center">
+        <div class="container-fluid py-5">
             <h1 class="display-3"><? echo $data['title'] ?></h1>
             <p class="lead"><? echo $data['description'] ?></p>
         </div>

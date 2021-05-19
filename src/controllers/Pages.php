@@ -16,7 +16,7 @@
         public function about(){
             $data = [
                 'title' => 'About',
-                'description' => 'Denna sida är byggd med hjälp av <a href="http://getbootstrap.com/">bootstrap</a> (v4.5.2).
+                'description' => 'Denna sida är byggd med hjälp av <a href="http://getbootstrap.com/">bootstrap</a> (v5.0.1).
                 <br>Källkoden finns på <a href="https://github.com/thulin82/innebandybokning">GitHub</a>
                 <br>&copy; Markus Thulin 2012-'
             ];
