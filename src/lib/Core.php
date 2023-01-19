@@ -8,7 +8,7 @@
             $url = $this->getUrl();
 
             // Controller
-            if (file_exists('../src/controllers/' . ucwords($url[0]) . '.php')) {
+            if (!empty($url[0]) && file_exists('../src/controllers/' . ucwords($url[0]) . '.php')) {
                 $this->currentController = ucwords($url[0]);
                 unset($url[0]);
             }
@@ -35,6 +35,6 @@
                 $url = explode('/', $url);
                 return $url;
             }
-            echo $_GET['url'];
+            return ['pages'];
         }
     }

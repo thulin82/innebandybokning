@@ -1,5 +1,6 @@
 <?php
     class Users extends Controller {
+        public $userModel;
 
         public function __construct(){
             $this->userModel = $this->model('User');
@@ -7,7 +8,7 @@
 
         public function register(){
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
                 // Proccess form
                 $data = [
                     'name' => trim($_POST['name']),
@@ -78,7 +79,7 @@
 
         public function login(){
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
                 // Proccess form
                 $data = [
                     'email' => trim($_POST['email']),
