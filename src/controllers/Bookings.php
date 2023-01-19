@@ -7,7 +7,8 @@
         }
         public function index() {
             $data = [
-                'title' => 'Bookings page'
+                'title' => 'Bookings page',
+                'description' => 'Innebandybokning 3.0'
             ];
 
             $this->view('bookings/index', $data);
