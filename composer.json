@@ -1,0 +1,27 @@
+{
+  "name": "thulin82/innebandybokning",
+  "description": "Innebandybokning is a web application for attendance management of floorball practice.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Markus Thulin",
+      "email": "macky_b@hotmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.4",
+    "robmorgan/phinx": "v0.16.*",
+    "phpstan/phpstan": "v1.12.*",
+    "squizlabs/php_codesniffer": "3.13.*",
+    "phpunit/phpunit": "v13.2.*",
+    "fakerphp/faker": "v1.24.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "": [
+        "src/lib/",
+        "test/"
+      ]
+    }
+  }
+}
