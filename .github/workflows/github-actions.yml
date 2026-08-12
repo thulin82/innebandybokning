@@ -1,0 +1,43 @@
+name: GitHub Actions
+
+on:
+  push:
+    branches: [3.0, main]
+  pull_request:
+    branches: [3.0, main]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-versions: ["8.4", "8.5"]
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v6
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: "Run tests with phpunit"
+        run: "vendor/bin/phpunit"
+
+      - name: "Run tests with phpcs"
+        run: "vendor/bin/phpcs --standard=.phpcs.xml"
+
+      - name: "Run tests with phpstan"
+        run: "vendor/bin/phpstan analyze src"
