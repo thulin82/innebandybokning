@@ -1,3 +1,12 @@
-#Dependencies
+# Package handling
 vendor
-node_modules
+
+# Tests
+coverage.clover
+report
+
+# Bootstrap files
+public/bootstrap/*
+
+# Development
+.vscode/

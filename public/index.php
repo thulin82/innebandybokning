@@ -1,4 +1,4 @@
 <?php
-    require_once '../src/bootstrap.php';
+require_once '../src/bootstrap.php';
 
-    $init = new Core;
+$init = new Core;

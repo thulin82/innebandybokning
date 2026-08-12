@@ -4,7 +4,16 @@ Based on [MVC Framework in PHP](https://github.com/thulin82/PHP-MVC-Framework)
 
 ## Requirements
 
+- [PHP](http://php.net/) - The latest version of PHP is highly recommended
+- [Composer](https://getcomposer.org/) - Dependency Manager
+
 ## Install
+
+#### Dependencies
+
+```bash
+composer install
+```
 
 ## Docker
 
