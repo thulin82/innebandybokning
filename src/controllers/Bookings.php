@@ -21,9 +21,9 @@ class Bookings extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Bookings page',
-            'description' => 'Innebandybokning 3.0'
-            ];
+                 'title'       => 'Bookings page',
+                 'description' => 'Innebandybokning 3.0',
+                ];
 
         $this->view('bookings/index', $data);
     }
