@@ -1,5 +1,5 @@
 <?php
-class Database 
+class Database
 {
     /**
      * The database host
@@ -60,9 +60,9 @@ class Database
     {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
         $options = array(
-            PDO::ATTR_PERSISTENT => true,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-        );
+                    PDO::ATTR_PERSISTENT => true,
+                    PDO::ATTR_ERRMODE    => PDO::ERRMODE_EXCEPTION
+                   );
 
         try {
             $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
@@ -81,7 +81,7 @@ class Database
      *
      * @throws PDOException If an error occurs while preparing the query.
      */
-    public function query(string $sql) 
+    public function query(string $sql)
     {
         try {
             $this->stmt = $this->dbh->prepare($sql);
@@ -197,8 +197,8 @@ class Database
      *
      * @return int The number of rows affected by the last SQL statement.
      */
-    public function rowCount() {
+    public function rowCount() 
+    {
         return $this->stmt->rowCount();
     }
 }
-    

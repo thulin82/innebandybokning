@@ -1,5 +1,5 @@
 <?php
-class Core  
+class Core
 {
     /**
      * Current controller
@@ -31,7 +31,7 @@ class Core
     {
         $url = $this->getUrl();
 
-        // Controller
+        // Controller.
         if (!empty($url[0]) && file_exists('../src/controllers/' . ucwords($url[0]) . '.php')) {
             $this->currentController = ucwords($url[0]);
             unset($url[0]);
@@ -39,7 +39,7 @@ class Core
         include_once '../src/controllers/' . $this->currentController . '.php';
         $this->currentController = new $this->currentController;
 
-        // Method
+        // Method.
         if (isset($url[1])) {
             if (method_exists($this->currentController, $url[1])) {
                 $this->currentMethod = $url[1];
@@ -47,7 +47,7 @@ class Core
             }
         }
 
-        // Params
+        // Params.
         $this->params = $url ? array_values($url) : [];
         call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
     }
