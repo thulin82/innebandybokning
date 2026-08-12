@@ -2,9 +2,9 @@ name: GitHub Actions
 
 on:
   push:
-    branches: [main]
+    branches: [3.0, main]
   pull_request:
-    branches: [main]
+    branches: [3.0, main]
 
 jobs:
   tests:
